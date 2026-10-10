@@ -22,7 +22,7 @@ export default function RegisterPage() {
     setIsSubmitting(true);
 
     try {
-      await register({ email, password, full_name: fullName });
+      await register({ email, password, full_name: fullName, fullName });
       router.push('/');
     } catch (err: any) {
       setError(err.message || 'Registration failed. Email may already be in use.');

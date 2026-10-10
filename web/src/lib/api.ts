@@ -212,6 +212,7 @@ export interface UserProfile {
   id: string;
   email: string;
   full_name: string;
+  fullName?: string;
   roles: string[];
 }
 
@@ -219,10 +220,15 @@ export interface UserProfile {
 export const api = {
   // Auth
   auth: {
-    register: (data: { email: string; password: string; full_name?: string }) =>
+    register: (data: { email: string; password: string; full_name?: string; fullName?: string }) =>
       apiRequest<{ user: UserProfile; token: string }>('/auth/register', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+          fullName: data.fullName || data.full_name,
+          full_name: data.full_name || data.fullName,
+        }),
       }),
     login: (data: { email: string; password: string }) =>
       apiRequest<{ user: UserProfile; token: string }>('/auth/login', {

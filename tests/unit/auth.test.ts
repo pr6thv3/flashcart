@@ -49,6 +49,23 @@ describe('Auth & RBAC Unit / Integration Tests', () => {
     expect(dbRoles.rows.map((r) => r.name)).toEqual(['customer']);
   });
 
+  it('registers a user when submitting snake_case full_name from frontend forms', async () => {
+    const email = `snake_case_${Date.now()}@example.com`;
+    const res = await request(app)
+      .post('/api/v1/auth/register')
+      .send({
+        email,
+        password: 'Password123!',
+        full_name: 'Frank Castle',
+      });
+
+    expect(res.status).toBe(201);
+    expect(res.body.user).toBeDefined();
+    expect(res.body.user.email).toBe(email);
+    expect(res.body.user.fullName).toBe('Frank Castle');
+    expect(res.body.user.full_name).toBe('Frank Castle');
+  });
+
   it('rejects registration with duplicate email with HTTP 409', async () => {
     const email = `dup_user_${Date.now()}@example.com`;
     await request(app)

@@ -10,7 +10,7 @@ interface AuthContextType {
   isVendor: boolean;
   isAdmin: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (data: { email: string; password: string; full_name?: string }) => Promise<void>;
+  register: (data: { email: string; password: string; full_name?: string; fullName?: string }) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -52,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(res.user);
   };
 
-  const register = async (data: { email: string; password: string; full_name?: string }) => {
+  const register = async (data: { email: string; password: string; full_name?: string; fullName?: string }) => {
     const res = await api.auth.register(data);
     setStoredToken(res.token);
     setToken(res.token);

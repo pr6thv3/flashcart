@@ -8,7 +8,7 @@
     "fail_on": "high",
     "passed": true
   },
-  "scan_timestamp": "2026-10-09T19:52:07.293626+00:00",
+  "scan_timestamp": "2026-10-10T03:05:57.752129+00:00",
   "scanned_files": [
     "docs/evidence/demo_4_ci_integration/fixtures/pr2_additive_vendor_note.sql"
   ],

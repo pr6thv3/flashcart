@@ -26,10 +26,15 @@ export class AuthController {
       });
 
       res.status(201).json({
-        user: result.user,
+        user: {
+          ...result.user,
+          full_name: result.user.fullName,
+        },
         token: result.token,
         user_id: result.user.id,
         email: result.user.email,
+        full_name: result.user.fullName,
+        fullName: result.user.fullName,
         role: result.user.roles[0],
       });
     } catch (err) {
@@ -57,10 +62,15 @@ export class AuthController {
       });
 
       res.status(200).json({
-        user: result.user,
+        user: {
+          ...result.user,
+          full_name: result.user.fullName,
+        },
         token: result.token,
         user_id: result.user.id,
         email: result.user.email,
+        full_name: result.user.fullName,
+        fullName: result.user.fullName,
         role: result.user.roles[0],
       });
     } catch (err) {
@@ -95,7 +105,12 @@ export class AuthController {
         return;
       }
       const user = await authService.getCurrentUser(req.user.id);
-      res.status(200).json({ user });
+      res.status(200).json({
+        user: {
+          ...user,
+          full_name: user.fullName,
+        },
+      });
     } catch (err) {
       next(err);
     }

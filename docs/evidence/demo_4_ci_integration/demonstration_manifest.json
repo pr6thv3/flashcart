@@ -1,15 +1,15 @@
 {
   "demonstration_id": "DEMO-04-CI-INTEGRATION",
   "requirement": "R4 / Document 08 §Demo 4",
-  "timestamp": "2026-10-09T19:52:06Z",
+  "timestamp": "2026-10-10T03:05:56Z",
   "analyzer": {
     "name": "safemigrate",
     "version": "0.1.0",
-    "git_commit": "cc464fa"
+    "git_commit": "a258d29"
   },
   "target_application": {
     "name": "flashcart",
-    "git_commit": "eb53847"
+    "git_commit": "d850dd4"
   },
   "environment": {
     "ci_runner": "GitHub Actions workflow .github/workflows/safemigrate-gate.yml",

@@ -1,29 +1,29 @@
 {
   "metadata": {
     "demonstration_id": "DEMO-01-MARKETPLACE-WORKFLOW",
-    "timestamp": "2026-10-09T19:42:53.503Z",
-    "run_id": "mv1dhcu795449b",
-    "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
-    "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+    "timestamp": "2026-10-10T03:05:33.444Z",
+    "run_id": "mv1tammcb644d9",
+    "customer_id": "0a583ac9-783c-4235-96ea-48499700238a",
+    "checkout_id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
     "vendor_1": {
-      "vendor_id": "71ac28fa-877d-4a0e-a481-55e76ddbe019",
-      "order_id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
+      "vendor_id": "88c9fc27-da38-4b3a-ba42-d8495f8cac98",
+      "order_id": "b04d7311-8fe6-4045-8f8d-6df380a8ed8c",
       "status": "shipped"
     },
     "vendor_2": {
-      "vendor_id": "348a8594-d9d5-41e6-96e6-aa69d6fc21fc",
-      "order_id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
+      "vendor_id": "4626998f-d695-47fb-8a07-78d15a43d851",
+      "order_id": "add815ff-8d08-4ac8-9038-205aa0931dfd",
       "status": "paid"
     }
   },
   "tables": {
     "checkouts": [
       {
-        "id": "57d28eb7-d43a-499d-b231-664e758dd916",
-        "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
-        "idempotency_key": "idemp_demo1_mv1dhcu795449b",
+        "id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
+        "customer_id": "0a583ac9-783c-4235-96ea-48499700238a",
+        "idempotency_key": "idemp_demo1_mv1tammcb644d9",
         "request_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-        "shipping_address_id": "30ee0035-8891-4e8e-ba5a-d66a3b7dbdc8",
+        "shipping_address_id": "532865e3-368c-4431-9dc1-e1bae679d6f1",
         "status": "paid",
         "currency": "INR",
         "subtotal_minor": "11200",
@@ -31,18 +31,18 @@
         "shipping_minor": "0",
         "tax_minor": "0",
         "total_minor": "11200",
-        "expires_at": "2026-10-09T19:52:53.855Z",
-        "created_at": "2026-10-09T19:42:53.855Z",
-        "updated_at": "2026-10-09T19:42:53.878Z"
+        "expires_at": "2026-10-10T03:15:33.801Z",
+        "created_at": "2026-10-10T03:05:33.801Z",
+        "updated_at": "2026-10-10T03:05:33.845Z"
       }
     ],
     "orders": [
       {
-        "id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
-        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
-        "vendor_id": "71ac28fa-877d-4a0e-a481-55e76ddbe019",
-        "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
-        "order_number": "ORD-MV1DHD43-71AC-7425",
+        "id": "b04d7311-8fe6-4045-8f8d-6df380a8ed8c",
+        "checkout_id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
+        "vendor_id": "88c9fc27-da38-4b3a-ba42-d8495f8cac98",
+        "customer_id": "0a583ac9-783c-4235-96ea-48499700238a",
+        "order_number": "ORD-MV1TAMWC-88C9-183B",
         "status": "shipped",
         "currency": "INR",
         "subtotal_minor": "9000",
@@ -58,15 +58,15 @@
           "recipient_name": "Store Customer",
           "street_address": "100 FlashCart Lane"
         },
-        "created_at": "2026-10-09T19:42:53.859Z",
-        "updated_at": "2026-10-09T19:42:53.982Z"
+        "created_at": "2026-10-10T03:05:33.805Z",
+        "updated_at": "2026-10-10T03:05:33.954Z"
       },
       {
-        "id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
-        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
-        "vendor_id": "348a8594-d9d5-41e6-96e6-aa69d6fc21fc",
-        "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
-        "order_number": "ORD-MV1DHD45-348A-DF47",
+        "id": "add815ff-8d08-4ac8-9038-205aa0931dfd",
+        "checkout_id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
+        "vendor_id": "4626998f-d695-47fb-8a07-78d15a43d851",
+        "customer_id": "0a583ac9-783c-4235-96ea-48499700238a",
+        "order_number": "ORD-MV1TAMWI-4626-0500",
         "status": "paid",
         "currency": "INR",
         "subtotal_minor": "2200",
@@ -82,78 +82,78 @@
           "recipient_name": "Store Customer",
           "street_address": "100 FlashCart Lane"
         },
-        "created_at": "2026-10-09T19:42:53.861Z",
-        "updated_at": "2026-10-09T19:42:53.878Z"
+        "created_at": "2026-10-10T03:05:33.811Z",
+        "updated_at": "2026-10-10T03:05:33.845Z"
       }
     ],
     "order_items": [
       {
-        "id": "8489a94b-6b6c-4ed2-8d76-c0f4ff406320",
-        "order_id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
-        "product_id": "26b5eb9b-561c-4a61-924e-d289e6962b4f",
+        "id": "5a50db2c-c671-4a47-9e20-a2900dad0478",
+        "order_id": "b04d7311-8fe6-4045-8f8d-6df380a8ed8c",
+        "product_id": "60bc0200-cf5f-4fd3-b286-f71d29349ea1",
         "flash_sale_id": null,
-        "sku_snapshot": "SKU-KB-mv1dhcu795449b",
+        "sku_snapshot": "SKU-KB-mv1tammcb644d9",
         "title_snapshot": "Mechanical Gaming Keyboard RGB",
         "quantity": 2,
         "unit_price_minor": "4500",
         "total_minor": "9000",
-        "created_at": "2026-10-09T19:42:53.860Z"
+        "created_at": "2026-10-10T03:05:33.807Z"
       },
       {
-        "id": "73ef8310-2f0e-4cf3-9ddd-1123c45b2522",
-        "order_id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
-        "product_id": "d53b68e0-beee-46b7-a430-d75071267409",
+        "id": "09188678-beae-4ad7-a8bd-0592122148ff",
+        "order_id": "add815ff-8d08-4ac8-9038-205aa0931dfd",
+        "product_id": "5fdf03d4-7b3f-4d73-805a-18ea5c7fa584",
         "flash_sale_id": null,
-        "sku_snapshot": "SKU-DDIA-mv1dhcu795449b",
+        "sku_snapshot": "SKU-DDIA-mv1tammcb644d9",
         "title_snapshot": "Designing Data-Intensive Applications",
         "quantity": 1,
         "unit_price_minor": "2200",
         "total_minor": "2200",
-        "created_at": "2026-10-09T19:42:53.861Z"
+        "created_at": "2026-10-10T03:05:33.813Z"
       }
     ],
     "payment_attempts": [
       {
-        "id": "b401e306-2a20-4754-884e-3bc4807c80c2",
-        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "id": "419db3d7-0317-4c46-8edc-599f41e53046",
+        "checkout_id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
         "provider": "sandbox",
-        "provider_payment_id": "pay_sbx_c6509e087b5f95f13427c1bb",
-        "idempotency_key": "pay_idemp_57d28eb7-d43a-499d-b231-664e758dd916_1791574973872",
+        "provider_payment_id": "pay_sbx_c7cbce0a5aa0aed40d042d43",
+        "idempotency_key": "pay_idemp_0733b281-b028-4ed3-970b-51ebea7a7a03_1791601533830",
         "amount_minor": "11200",
         "currency": "INR",
         "status": "captured",
         "error_code": null,
         "error_message": null,
-        "created_at": "2026-10-09T19:42:53.873Z",
-        "updated_at": "2026-10-09T19:42:53.878Z"
+        "created_at": "2026-10-10T03:05:33.833Z",
+        "updated_at": "2026-10-10T03:05:33.844Z"
       }
     ],
     "inventory_reservations": [
       {
-        "id": "281d2804-019a-4164-b3d6-47c65ffc6f51",
-        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
-        "product_id": "26b5eb9b-561c-4a61-924e-d289e6962b4f",
+        "id": "f27a695c-3220-47df-82f7-bc4d4cb20e7d",
+        "checkout_id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
+        "product_id": "60bc0200-cf5f-4fd3-b286-f71d29349ea1",
         "flash_sale_id": null,
         "quantity": 2,
         "status": "consumed",
-        "expires_at": "2026-10-09T19:52:53.855Z",
-        "consumed_at": "2026-10-09T19:42:53.877Z",
+        "expires_at": "2026-10-10T03:15:33.801Z",
+        "consumed_at": "2026-10-10T03:05:33.843Z",
         "released_at": null,
-        "created_at": "2026-10-09T19:42:53.861Z",
-        "updated_at": "2026-10-09T19:42:53.877Z"
+        "created_at": "2026-10-10T03:05:33.815Z",
+        "updated_at": "2026-10-10T03:05:33.843Z"
       },
       {
-        "id": "895c42ef-f86d-4ec7-843f-7663f900d588",
-        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
-        "product_id": "d53b68e0-beee-46b7-a430-d75071267409",
+        "id": "ca3c4c32-8ade-4988-97eb-c903fa6bcdea",
+        "checkout_id": "0733b281-b028-4ed3-970b-51ebea7a7a03",
+        "product_id": "5fdf03d4-7b3f-4d73-805a-18ea5c7fa584",
         "flash_sale_id": null,
         "quantity": 1,
         "status": "consumed",
-        "expires_at": "2026-10-09T19:52:53.855Z",
-        "consumed_at": "2026-10-09T19:42:53.877Z",
+        "expires_at": "2026-10-10T03:15:33.801Z",
+        "consumed_at": "2026-10-10T03:05:33.841Z",
         "released_at": null,
-        "created_at": "2026-10-09T19:42:53.862Z",
-        "updated_at": "2026-10-09T19:42:53.877Z"
+        "created_at": "2026-10-10T03:05:33.817Z",
+        "updated_at": "2026-10-10T03:05:33.841Z"
       }
     ]
   }

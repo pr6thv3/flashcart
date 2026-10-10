@@ -1,7 +1,7 @@
 {
   "demonstration_id": "DEMO-02-FLASH-SALE-CONCURRENCY",
   "requirement": "R4 / Document 08 §Demo 2",
-  "timestamp": "2026-10-09T19:45:47.736Z",
+  "timestamp": "2026-10-10T03:05:42.468Z",
   "git_commit": "eb53847",
   "environment": {
     "node_version": "v26.8.1",
@@ -11,17 +11,17 @@
     "physical_initial_stock": 100
   },
   "results": {
-    "run_id": "mv1dl2c0seho",
+    "run_id": "mv1tasooy12y",
     "total_requests": 200,
     "accepted_reservations": 10,
     "rejected_conflicts": 190,
     "server_errors": 0,
-    "duration_ms": 1021,
+    "duration_ms": 948,
     "latency_metrics": {
-      "min_ms": 226,
-      "avg_ms": 673,
-      "p95_ms": 986,
-      "max_ms": 1011
+      "min_ms": 240,
+      "avg_ms": 676,
+      "p95_ms": 921,
+      "max_ms": 941
     },
     "post_payment_stock": {
       "physical_on_hand": 90,
