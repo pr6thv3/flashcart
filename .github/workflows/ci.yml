@@ -1,0 +1,64 @@
+name: FlashCart CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-build:
+    name: Build & Test Node.js 22
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: flashcart_db
+          POSTGRES_USER: flashcart_user
+          POSTGRES_PASSWORD: flashcart_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U flashcart_user -d flashcart_db"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript Build
+        run: npm run build
+
+      - name: Run Database Migrations
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_DB: flashcart_db
+          POSTGRES_USER: flashcart_user
+          POSTGRES_PASSWORD: flashcart_password
+        run: npm run migrate:up
+
+      - name: Run Test Suite
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_DB: flashcart_db
+          POSTGRES_USER: flashcart_user
+          POSTGRES_PASSWORD: flashcart_password
+          JWT_SECRET: ci-jwt-test-secret-32-chars-long-key
+          COOKIE_SECRET: ci-cookie-test-secret-32-chars-key
+          WEBHOOK_SECRET_SANDBOX: ci-webhook-secret-key-32-chars
+        run: npm test

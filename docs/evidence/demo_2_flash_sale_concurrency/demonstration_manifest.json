@@ -1,0 +1,42 @@
+{
+  "demonstration_id": "DEMO-02-FLASH-SALE-CONCURRENCY",
+  "requirement": "R4 / Document 08 §Demo 2",
+  "timestamp": "2026-10-09T19:45:47.736Z",
+  "git_commit": "eb53847",
+  "environment": {
+    "node_version": "v26.8.1",
+    "database": "PostgreSQL 17 (Docker)",
+    "concurrency": 200,
+    "inventory_limit": 10,
+    "physical_initial_stock": 100
+  },
+  "results": {
+    "run_id": "mv1dl2c0seho",
+    "total_requests": 200,
+    "accepted_reservations": 10,
+    "rejected_conflicts": 190,
+    "server_errors": 0,
+    "duration_ms": 1021,
+    "latency_metrics": {
+      "min_ms": 226,
+      "avg_ms": 673,
+      "p95_ms": 986,
+      "max_ms": 1011
+    },
+    "post_payment_stock": {
+      "physical_on_hand": 90,
+      "physical_reserved": 0,
+      "flash_sale_sold": 10,
+      "flash_sale_reserved": 0
+    },
+    "zero_overselling_verified": true,
+    "zero_negative_stock_verified": true
+  },
+  "artifacts": [
+    "demo_2_console.log",
+    "terminal_output.txt",
+    "demonstration_manifest.json",
+    "db_verification.json",
+    "DEMO_2_SUMMARY.md"
+  ]
+}

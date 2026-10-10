@@ -1,0 +1,33 @@
+{
+  "demonstration_id": "DEMO-01-MARKETPLACE-WORKFLOW",
+  "requirement": "R4 / Document 08 §Demo 1",
+  "timestamp": "2026-10-09T19:42:53.993Z",
+  "git_commit": "eb53847",
+  "environment": {
+    "node_version": "v26.8.1",
+    "database": "PostgreSQL 17 (Docker)",
+    "app": "FlashCart Express API /api/v1"
+  },
+  "execution": {
+    "run_id": "mv1dhcu795449b",
+    "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+    "vendor1_order_id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
+    "vendor2_order_id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
+    "passed": true
+  },
+  "invariants_verified": [
+    "Customer registration, authentication and catalog browsing",
+    "Multi-vendor cart aggregation with authoritative server-side price revalidation",
+    "Checkout reservation with atomic inventory hold and UNIQUE(checkout_id, vendor_id) sub-orders",
+    "Decoupled sandbox payment execution transitioning checkout and sub-orders to paid",
+    "Vendor tenant isolation: Vendor 1 cannot list or fulfill Vendor 2 sub-orders (HTTP 404 Zero-IDOR)",
+    "Vendor 1 fulfills owned sub-order (status: shipped) while Vendor 2 sub-order remains untouched (status: paid)",
+    "Clean database record extraction and sanitization across all relational entities"
+  ],
+  "artifacts": [
+    "demo_1_console.log",
+    "sanitized_database_records.json",
+    "demonstration_manifest.json",
+    "DEMO_1_SUMMARY.md"
+  ]
+}

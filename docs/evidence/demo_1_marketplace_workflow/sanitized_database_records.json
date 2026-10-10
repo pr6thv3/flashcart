@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "demonstration_id": "DEMO-01-MARKETPLACE-WORKFLOW",
+    "timestamp": "2026-10-09T19:42:53.503Z",
+    "run_id": "mv1dhcu795449b",
+    "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
+    "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+    "vendor_1": {
+      "vendor_id": "71ac28fa-877d-4a0e-a481-55e76ddbe019",
+      "order_id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
+      "status": "shipped"
+    },
+    "vendor_2": {
+      "vendor_id": "348a8594-d9d5-41e6-96e6-aa69d6fc21fc",
+      "order_id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
+      "status": "paid"
+    }
+  },
+  "tables": {
+    "checkouts": [
+      {
+        "id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
+        "idempotency_key": "idemp_demo1_mv1dhcu795449b",
+        "request_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "shipping_address_id": "30ee0035-8891-4e8e-ba5a-d66a3b7dbdc8",
+        "status": "paid",
+        "currency": "INR",
+        "subtotal_minor": "11200",
+        "discount_minor": "0",
+        "shipping_minor": "0",
+        "tax_minor": "0",
+        "total_minor": "11200",
+        "expires_at": "2026-10-09T19:52:53.855Z",
+        "created_at": "2026-10-09T19:42:53.855Z",
+        "updated_at": "2026-10-09T19:42:53.878Z"
+      }
+    ],
+    "orders": [
+      {
+        "id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
+        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "vendor_id": "71ac28fa-877d-4a0e-a481-55e76ddbe019",
+        "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
+        "order_number": "ORD-MV1DHD43-71AC-7425",
+        "status": "shipped",
+        "currency": "INR",
+        "subtotal_minor": "9000",
+        "shipping_minor": "0",
+        "tax_minor": "0",
+        "total_minor": "9000",
+        "shipping_address_snapshot": {
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "country": "IN",
+          "postal_code": "560001",
+          "phone_number": "9876543210",
+          "recipient_name": "Store Customer",
+          "street_address": "100 FlashCart Lane"
+        },
+        "created_at": "2026-10-09T19:42:53.859Z",
+        "updated_at": "2026-10-09T19:42:53.982Z"
+      },
+      {
+        "id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
+        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "vendor_id": "348a8594-d9d5-41e6-96e6-aa69d6fc21fc",
+        "customer_id": "fa5224a4-999b-43f4-a644-19338d7caa27",
+        "order_number": "ORD-MV1DHD45-348A-DF47",
+        "status": "paid",
+        "currency": "INR",
+        "subtotal_minor": "2200",
+        "shipping_minor": "0",
+        "tax_minor": "0",
+        "total_minor": "2200",
+        "shipping_address_snapshot": {
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "country": "IN",
+          "postal_code": "560001",
+          "phone_number": "9876543210",
+          "recipient_name": "Store Customer",
+          "street_address": "100 FlashCart Lane"
+        },
+        "created_at": "2026-10-09T19:42:53.861Z",
+        "updated_at": "2026-10-09T19:42:53.878Z"
+      }
+    ],
+    "order_items": [
+      {
+        "id": "8489a94b-6b6c-4ed2-8d76-c0f4ff406320",
+        "order_id": "b1c3a62d-bc13-4deb-afdd-266706b72e84",
+        "product_id": "26b5eb9b-561c-4a61-924e-d289e6962b4f",
+        "flash_sale_id": null,
+        "sku_snapshot": "SKU-KB-mv1dhcu795449b",
+        "title_snapshot": "Mechanical Gaming Keyboard RGB",
+        "quantity": 2,
+        "unit_price_minor": "4500",
+        "total_minor": "9000",
+        "created_at": "2026-10-09T19:42:53.860Z"
+      },
+      {
+        "id": "73ef8310-2f0e-4cf3-9ddd-1123c45b2522",
+        "order_id": "3807eee0-56b8-4674-8c86-85faafb64e9d",
+        "product_id": "d53b68e0-beee-46b7-a430-d75071267409",
+        "flash_sale_id": null,
+        "sku_snapshot": "SKU-DDIA-mv1dhcu795449b",
+        "title_snapshot": "Designing Data-Intensive Applications",
+        "quantity": 1,
+        "unit_price_minor": "2200",
+        "total_minor": "2200",
+        "created_at": "2026-10-09T19:42:53.861Z"
+      }
+    ],
+    "payment_attempts": [
+      {
+        "id": "b401e306-2a20-4754-884e-3bc4807c80c2",
+        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "provider": "sandbox",
+        "provider_payment_id": "pay_sbx_c6509e087b5f95f13427c1bb",
+        "idempotency_key": "pay_idemp_57d28eb7-d43a-499d-b231-664e758dd916_1791574973872",
+        "amount_minor": "11200",
+        "currency": "INR",
+        "status": "captured",
+        "error_code": null,
+        "error_message": null,
+        "created_at": "2026-10-09T19:42:53.873Z",
+        "updated_at": "2026-10-09T19:42:53.878Z"
+      }
+    ],
+    "inventory_reservations": [
+      {
+        "id": "281d2804-019a-4164-b3d6-47c65ffc6f51",
+        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "product_id": "26b5eb9b-561c-4a61-924e-d289e6962b4f",
+        "flash_sale_id": null,
+        "quantity": 2,
+        "status": "consumed",
+        "expires_at": "2026-10-09T19:52:53.855Z",
+        "consumed_at": "2026-10-09T19:42:53.877Z",
+        "released_at": null,
+        "created_at": "2026-10-09T19:42:53.861Z",
+        "updated_at": "2026-10-09T19:42:53.877Z"
+      },
+      {
+        "id": "895c42ef-f86d-4ec7-843f-7663f900d588",
+        "checkout_id": "57d28eb7-d43a-499d-b231-664e758dd916",
+        "product_id": "d53b68e0-beee-46b7-a430-d75071267409",
+        "flash_sale_id": null,
+        "quantity": 1,
+        "status": "consumed",
+        "expires_at": "2026-10-09T19:52:53.855Z",
+        "consumed_at": "2026-10-09T19:42:53.877Z",
+        "released_at": null,
+        "created_at": "2026-10-09T19:42:53.862Z",
+        "updated_at": "2026-10-09T19:42:53.877Z"
+      }
+    ]
+  }
+}

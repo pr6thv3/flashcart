@@ -1,0 +1,34 @@
+{
+  "diagnostics": [],
+  "findings": [],
+  "migration_transaction_mode": "wrapped",
+  "pg_version": 18,
+  "policy": {
+    "exit_code": 0,
+    "fail_on": "high",
+    "passed": true
+  },
+  "scan_timestamp": "2026-10-09T19:52:07.293626+00:00",
+  "scanned_files": [
+    "docs/evidence/demo_4_ci_integration/fixtures/pr2_additive_vendor_note.sql"
+  ],
+  "schema_version": "1.0",
+  "summary": {
+    "parse_errors": 0,
+    "severities": {
+      "critical": 0,
+      "high": 0,
+      "info": 0,
+      "low": 0,
+      "medium": 0
+    },
+    "total_files": 1,
+    "total_findings": 0,
+    "total_statements": 1
+  },
+  "target_engine": "postgresql",
+  "tool": {
+    "name": "safemigrate",
+    "version": "0.1.0"
+  }
+}

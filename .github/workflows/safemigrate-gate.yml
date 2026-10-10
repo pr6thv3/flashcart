@@ -1,0 +1,55 @@
+name: SafeMigrate Gate
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'migrations/**'
+      - '.github/workflows/safemigrate-gate.yml'
+
+jobs:
+  migration-gate:
+    name: SafeMigrate Migration Scan Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout FlashCart
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install Pinned SafeMigrate
+        run: |
+          python -m pip install --upgrade pip
+          if ls ../safemigrate/dist/*.whl 1> /dev/null 2>&1; then
+            echo "Installing from local wheel directory..."
+            pip install ../safemigrate/dist/*.whl
+          elif [ -f vendor/safemigrate-0.1.0-py3-none-any.whl ]; then
+            echo "Installing from vendored wheel..."
+            pip install vendor/safemigrate-0.1.0-py3-none-any.whl
+          else
+            echo "Installing pinned SafeMigrate release from repository..."
+            pip install "git+https://github.com/pr6thv3/safemigrate.git@1f00503"
+          fi
+          safemigrate --version
+
+      - name: Run SafeMigrate Scan on Migrations (Fails Closed)
+        run: |
+          echo "Scanning PostgreSQL migrations with SafeMigrate gate..."
+          # Exit codes: 0 = PASS, 1 = POLICY VIOLATION, 2 = PARSE/SYNTAX ERROR (FAIL CLOSED)
+          safemigrate scan migrations/ \
+            --fail-on high \
+            --migration-transaction-mode wrapped \
+            --format sarif \
+            --output safemigrate-report.sarif
+
+      - name: Upload SafeMigrate SARIF Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: safemigrate-sarif-report
+          path: safemigrate-report.sarif
+          if-no-files-found: ignore

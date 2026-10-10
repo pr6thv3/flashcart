@@ -1,0 +1,2778 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "artifacts": [
+        {
+          "location": {
+            "uri": "migrations/001_core_identity.sql"
+          },
+          "sourceLanguage": "sql"
+        },
+        {
+          "location": {
+            "uri": "migrations/002_catalog_inventory.sql"
+          },
+          "sourceLanguage": "sql"
+        },
+        {
+          "location": {
+            "uri": "migrations/003_cart_checkout_orders.sql"
+          },
+          "sourceLanguage": "sql"
+        },
+        {
+          "location": {
+            "uri": "migrations/004_payments_history.sql"
+          },
+          "sourceLanguage": "sql"
+        },
+        {
+          "location": {
+            "uri": "migrations/005_audit_outbox.sql"
+          },
+          "sourceLanguage": "sql"
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "exitCode": 0,
+          "exitCodeDescription": "Analysis passed"
+        }
+      ],
+      "results": [
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_users_is_active ON users (is_active);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 26
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_users_is_active' on 'users' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_users_is_active",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "users"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_users_is_active ON users without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_user_roles_user_id ON user_roles (user_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 36
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_user_roles_user_id' on 'user_roles' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_user_roles_user_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "user_roles"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_user_roles_user_id ON user_roles without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_user_roles_role_id ON user_roles (role_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 37
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_user_roles_role_id' on 'user_roles' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_user_roles_role_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "user_roles"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_user_roles_role_id ON user_roles without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_sessions_user_id ON sessions (user_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 53
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_sessions_user_id' on 'sessions' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_sessions_user_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "sessions"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_sessions_user_id ON sessions without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_sessions_expires_revoked ON sessions (expires_at, revoked_at);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 54
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_sessions_expires_revoked' on 'sessions' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_sessions_expires_revoked",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "sessions"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_sessions_expires_revoked ON sessions without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_vendor_profiles_user_id ON vendor_profiles (user_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_vendor_profiles_user_id' on 'vendor_profiles' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_vendor_profiles_user_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "vendor_profiles"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_vendor_profiles_user_id ON vendor_profiles without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_vendor_profiles_approved_by ON vendor_profiles (approved_by);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 74
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_vendor_profiles_approved_by' on 'vendor_profiles' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_vendor_profiles_approved_by",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "vendor_profiles"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_vendor_profiles_approved_by ON vendor_profiles without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_vendor_profiles_status ON vendor_profiles (status);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 75
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_vendor_profiles_status' on 'vendor_profiles' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_vendor_profiles_status",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "vendor_profiles"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_vendor_profiles_status ON vendor_profiles without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_addresses_user_id ON addresses (user_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 95
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_addresses_user_id' on 'addresses' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_addresses_user_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "addresses"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_addresses_user_id ON addresses without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/001_core_identity.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_addresses_user_active ON addresses (user_id, is_active);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 96
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_addresses_user_active' on 'addresses' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_addresses_user_active",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "addresses"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_addresses_user_active ON addresses without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_categories_parent_id ON categories (parent_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_categories_parent_id' on 'categories' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_categories_parent_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "categories"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_categories_parent_id ON categories without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_products_vendor_id ON products (vendor_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_products_vendor_id' on 'products' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_products_vendor_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "products"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_products_vendor_id ON products without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_products_category_id ON products (category_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_products_category_id' on 'products' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_products_category_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "products"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_products_category_id ON products without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_products_status_category ON products (status, category_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 41
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_products_status_category' on 'products' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_products_status_category",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "products"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_products_status_category ON products without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_products_vendor_status ON products (vendor_id, status);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 42
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_products_vendor_status' on 'products' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_products_vendor_status",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "products"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_products_vendor_status ON products without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_product_images_product_id ON product_images (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 56
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_product_images_product_id' on 'product_images' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_product_images_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "product_images"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_product_images_product_id ON product_images without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_product_images_product_sort ON product_images (product_id, sort_order);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 57
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_product_images_product_sort' on 'product_images' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_product_images_product_sort",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "product_images"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_product_images_product_sort ON product_images without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_inventory_product_id ON inventory (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 72
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_inventory_product_id' on 'inventory' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_inventory_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "inventory"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_inventory_product_id ON inventory without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_flash_sales_product_id ON flash_sales (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 95
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_flash_sales_product_id' on 'flash_sales' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_flash_sales_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "flash_sales"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_flash_sales_product_id ON flash_sales without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_flash_sales_vendor_id ON flash_sales (vendor_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 96
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_flash_sales_vendor_id' on 'flash_sales' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_flash_sales_vendor_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "flash_sales"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_flash_sales_vendor_id ON flash_sales without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/002_catalog_inventory.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_flash_sales_active_window ON flash_sales (is_active, starts_at, ends_at);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 97
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_flash_sales_active_window' on 'flash_sales' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_flash_sales_active_window",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "flash_sales"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_flash_sales_active_window ON flash_sales without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_carts_user_id ON carts (user_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_carts_user_id' on 'carts' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_carts_user_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "carts"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_carts_user_id ON carts without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_cart_items_cart_id ON cart_items (cart_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_cart_items_cart_id' on 'cart_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_cart_items_cart_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "cart_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_cart_items_cart_id ON cart_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_cart_items_product_id ON cart_items (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 28
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_cart_items_product_id' on 'cart_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_cart_items_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "cart_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_cart_items_product_id ON cart_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkouts_customer_id ON checkouts (customer_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 52
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkouts_customer_id' on 'checkouts' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkouts_customer_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkouts"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkouts_customer_id ON checkouts without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkouts_shipping_address_id ON checkouts (shipping_address_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 53
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkouts_shipping_address_id' on 'checkouts' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkouts_shipping_address_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkouts"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkouts_shipping_address_id ON checkouts without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkouts_status_expires ON checkouts (status, expires_at);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 54
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkouts_status_expires' on 'checkouts' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkouts_status_expires",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkouts"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkouts_status_expires ON checkouts without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkout_items_checkout_id ON checkout_items (checkout_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 71
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkout_items_checkout_id' on 'checkout_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkout_items_checkout_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkout_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkout_items_checkout_id ON checkout_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkout_items_product_id ON checkout_items (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 72
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkout_items_product_id' on 'checkout_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkout_items_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkout_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkout_items_product_id ON checkout_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkout_items_vendor_id ON checkout_items (vendor_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkout_items_vendor_id' on 'checkout_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkout_items_vendor_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkout_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkout_items_vendor_id ON checkout_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_checkout_items_flash_sale_id ON checkout_items (flash_sale_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 74
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_checkout_items_flash_sale_id' on 'checkout_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_checkout_items_flash_sale_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "checkout_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_checkout_items_flash_sale_id ON checkout_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_orders_checkout_id ON orders (checkout_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 98
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_orders_checkout_id' on 'orders' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_orders_checkout_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "orders"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_orders_checkout_id ON orders without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_orders_vendor_id ON orders (vendor_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 99
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_orders_vendor_id' on 'orders' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_orders_vendor_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "orders"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_orders_vendor_id ON orders without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_orders_customer_id ON orders (customer_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 100
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_orders_customer_id' on 'orders' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_orders_customer_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "orders"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_orders_customer_id ON orders without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_orders_vendor_status_created ON orders (vendor_id, status, created_at DESC);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 101
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_orders_vendor_status_created' on 'orders' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_orders_vendor_status_created",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "orders"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_orders_vendor_status_created ON orders without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_orders_customer_created ON orders (customer_id, created_at DESC);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 102
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_orders_customer_created' on 'orders' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_orders_customer_created",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "orders"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_orders_customer_created ON orders without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_order_items_order_id ON order_items (order_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 120
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_order_items_order_id' on 'order_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_order_items_order_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "order_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_order_items_order_id ON order_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_order_items_product_id ON order_items (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 121
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_order_items_product_id' on 'order_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_order_items_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "order_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_order_items_product_id ON order_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_order_items_flash_sale_id ON order_items (flash_sale_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 122
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_order_items_flash_sale_id' on 'order_items' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_order_items_flash_sale_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "order_items"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_order_items_flash_sale_id ON order_items without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_inventory_reservations_checkout_id ON inventory_reservations (checkout_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 141
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_inventory_reservations_checkout_id' on 'inventory_reservations' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_inventory_reservations_checkout_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "inventory_reservations"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_inventory_reservations_checkout_id ON inventory_reservations without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_inventory_reservations_product_id ON inventory_reservations (product_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 142
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_inventory_reservations_product_id' on 'inventory_reservations' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_inventory_reservations_product_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "inventory_reservations"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_inventory_reservations_product_id ON inventory_reservations without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_inventory_reservations_flash_sale_id ON inventory_reservations (flash_sale_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 143
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_inventory_reservations_flash_sale_id' on 'inventory_reservations' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_inventory_reservations_flash_sale_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "inventory_reservations"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_inventory_reservations_flash_sale_id ON inventory_reservations without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/003_cart_checkout_orders.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_reservations_sweeper ON inventory_reservations (status, expires_at) WHERE status = 'pending';"
+                  },
+                  "startColumn": 6,
+                  "startLine": 144
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_reservations_sweeper' on 'inventory_reservations' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_reservations_sweeper",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "inventory_reservations"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_reservations_sweeper ON inventory_reservations without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_payment_attempts_checkout_id ON payment_attempts (checkout_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 23
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_payment_attempts_checkout_id' on 'payment_attempts' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_payment_attempts_checkout_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "payment_attempts"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_payment_attempts_checkout_id ON payment_attempts without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_payment_attempts_provider_ref ON payment_attempts (provider, provider_payment_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_payment_attempts_provider_ref' on 'payment_attempts' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_payment_attempts_provider_ref",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "payment_attempts"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_payment_attempts_provider_ref ON payment_attempts without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_webhook_status_created ON payment_webhook_events (status, created_at);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_webhook_status_created' on 'payment_webhook_events' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_webhook_status_created",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "payment_webhook_events"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_webhook_status_created ON payment_webhook_events without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_refunds_order_id ON refunds (order_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 61
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_refunds_order_id' on 'refunds' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_refunds_order_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "refunds"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_refunds_order_id ON refunds without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_refunds_payment_attempt_id ON refunds (payment_attempt_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 62
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_refunds_payment_attempt_id' on 'refunds' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_refunds_payment_attempt_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "refunds"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_refunds_payment_attempt_id ON refunds without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_refunds_provider_ref ON refunds (provider, provider_refund_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 63
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_refunds_provider_ref' on 'refunds' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_refunds_provider_ref",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "refunds"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_refunds_provider_ref ON refunds without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_order_status_history_order_id ON order_status_history (order_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 78
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_order_status_history_order_id' on 'order_status_history' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_order_status_history_order_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "order_status_history"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_order_status_history_order_id ON order_status_history without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_order_status_history_actor_id ON order_status_history (actor_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 79
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_order_status_history_actor_id' on 'order_status_history' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_order_status_history_actor_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "order_status_history"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_order_status_history_actor_id ON order_status_history without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/004_payments_history.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_order_status_history_timeline ON order_status_history (order_id, created_at DESC);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 80
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_order_status_history_timeline' on 'order_status_history' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_order_status_history_timeline",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "order_status_history"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_order_status_history_timeline ON order_status_history without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/005_audit_outbox.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_audit_log_actor_id ON audit_log (actor_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_audit_log_actor_id' on 'audit_log' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_audit_log_actor_id",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "audit_log"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_audit_log_actor_id ON audit_log without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/005_audit_outbox.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_audit_log_target ON audit_log (target_type, target_id);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_audit_log_target' on 'audit_log' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_audit_log_target",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "audit_log"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_audit_log_target ON audit_log without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/005_audit_outbox.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_audit_log_created_at ON audit_log (created_at DESC);"
+                  },
+                  "startColumn": 6,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_audit_log_created_at' on 'audit_log' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_audit_log_created_at",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "audit_log"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_audit_log_created_at ON audit_log without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "migrations/005_audit_outbox.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "CREATE INDEX idx_outbox_jobs_polling ON outbox_jobs (status, next_attempt_at) WHERE status = 'pending';"
+                  },
+                  "startColumn": 6,
+                  "startLine": 38
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Non-Concurrent Index Creation Write Lockout: Creating index 'idx_outbox_jobs_polling' on 'outbox_jobs' without CONCURRENTLY acquires a SHARE lock, blocking all concurrent write operations (INSERT, UPDATE, DELETE) until completed."
+          },
+          "properties": {
+            "affectedObject": {
+              "index": "idx_outbox_jobs_polling",
+              "operation": "CREATE_INDEX",
+              "schema": "public",
+              "table": "outbox_jobs"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "write_traffic_frequency"
+            ],
+            "contextUsed": {
+              "concurrently": false,
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "CREATE INDEX idx_outbox_jobs_polling ON outbox_jobs without CONCURRENTLY",
+            "recommendation": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.",
+            "severity": "medium"
+          },
+          "ruleId": "SM004",
+          "ruleIndex": 3
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/pr6thv3/safemigrate",
+          "name": "safemigrate",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects DROP TABLE operations causing permanent data loss and rolling deployment query failures."
+              },
+              "help": {
+                "markdown": "### Remediation\nEmploy an expand-contract deprecation cycle: (1) Deprecate and remove table references from application code in release N; (2) Verify zero runtime queries access the table; (3) Archive data to cold storage and verify backups; (4) Drop the table in release N+1.\n\n**Hazard Rationale:** Dropping a table permanently deletes data and invalidates dependent views, foreign keys, and application queries. In rolling zero-downtime deployments, active application versions referencing the dropped table immediately crash with undefined table errors.",
+                "text": "Employ an expand-contract deprecation cycle: (1) Deprecate and remove table references from application code in release N; (2) Verify zero runtime queries access the table; (3) Archive data to cold storage and verify backups; (4) Drop the table in release N+1."
+              },
+              "id": "SM001",
+              "name": "DestructiveTableDrop",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Destructive Table Drop"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects ALTER TABLE ... DROP COLUMN operations causing data loss and breaking rolling deployments."
+              },
+              "help": {
+                "markdown": "### Remediation\nAdopt expand-contract migration pattern: (1) Deprecate and remove column references from application code; (2) Deploy application release N; (3) Drop column in subsequent release N+1 after verifying no active queries access it.\n\n**Hazard Rationale:** Dropping a column immediately breaks backward compatibility in rolling deployments where older application instances continue selecting or updating the column. Stored column data is permanently destroyed.",
+                "text": "Adopt expand-contract migration pattern: (1) Deprecate and remove column references from application code; (2) Deploy application release N; (3) Drop column in subsequent release N+1 after verifying no active queries access it."
+              },
+              "id": "SM002",
+              "name": "DestructiveColumnDrop",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Destructive Column Drop"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects ALTER COLUMN TYPE which acquires ACCESS EXCLUSIVE lock and may rewrite table rows."
+              },
+              "help": {
+                "markdown": "### Remediation\nEmploy staged column expansion: (1) Add a new column with the target type; (2) Dual-write in application code; (3) Backfill historical rows in bounded batches; (4) Switch application reads and writes to the new column; (5) Drop the old column in a later release.\n\n**Hazard Rationale:** Altering a column type acquires an ACCESS EXCLUSIVE lock on the table, blocking all concurrent reads and writes. In PostgreSQL, most type changes force a full table rewrite and index rebuild.",
+                "text": "Employ staged column expansion: (1) Add a new column with the target type; (2) Dual-write in application code; (3) Backfill historical rows in bounded batches; (4) Switch application reads and writes to the new column; (5) Drop the old column in a later release."
+              },
+              "id": "SM003",
+              "name": "ColumnTypeAlterationLock/RewriteHazard",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Column Type Alteration Lock/Rewrite Hazard"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects CREATE INDEX without CONCURRENTLY which takes a SHARE lock and blocks writes."
+              },
+              "help": {
+                "markdown": "### Remediation\nUse CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.\n\n**Hazard Rationale:** Standard CREATE INDEX acquires a SHARE lock on the target table (or SHARE ROW EXCLUSIVE for UNIQUE indexes). While reads (SELECT) are permitted, all write operations (INSERT, UPDATE, DELETE) are blocked until index build finishes.",
+                "text": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally."
+              },
+              "id": "SM004",
+              "name": "Non-ConcurrentIndexCreationWriteLockout",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Non-Concurrent Index Creation Write Lockout"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects CREATE INDEX CONCURRENTLY executed inside explicit or runner-wrapped transaction blocks."
+              },
+              "help": {
+                "markdown": "### Remediation\nExecute CREATE INDEX CONCURRENTLY non-transactionally: remove in-file BEGIN/COMMIT blocks, or configure your migration runner (e.g. node-pg-migrate transaction: false, Flyway, Prisma) to disable transaction wrapping.\n\n**Hazard Rationale:** PostgreSQL strictly prohibits running CREATE INDEX CONCURRENTLY within a transaction block, raising: 'ERROR: CREATE INDEX CONCURRENTLY cannot run inside a transaction block'. This causes immediate migration failure.",
+                "text": "Execute CREATE INDEX CONCURRENTLY non-transactionally: remove in-file BEGIN/COMMIT blocks, or configure your migration runner (e.g. node-pg-migrate transaction: false, Flyway, Prisma) to disable transaction wrapping."
+              },
+              "id": "SM005",
+              "name": "Transaction-WrappedConcurrentIndexCreation",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Transaction-Wrapped Concurrent Index Creation"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects adding NOT NULL or constraint directly without staged validation causing table scan lockups."
+              },
+              "help": {
+                "markdown": "### Remediation\nUse 3-step staged NOT NULL validation pattern (PostgreSQL 12+): (1) ALTER TABLE tbl ADD CONSTRAINT chk_col_not_null CHECK (col IS NOT NULL) NOT VALID; (2) ALTER TABLE tbl VALIDATE CONSTRAINT chk_col_not_null; (3) ALTER TABLE tbl ALTER COLUMN col SET NOT NULL;\n\n**Hazard Rationale:** Applying SET NOT NULL directly to an existing column requires a full table scan while holding an ACCESS EXCLUSIVE lock to verify no NULL values exist. Adding a NOT NULL column without a default value fails immediately if rows already exist.",
+                "text": "Use 3-step staged NOT NULL validation pattern (PostgreSQL 12+): (1) ALTER TABLE tbl ADD CONSTRAINT chk_col_not_null CHECK (col IS NOT NULL) NOT VALID; (2) ALTER TABLE tbl VALIDATE CONSTRAINT chk_col_not_null; (3) ALTER TABLE tbl ALTER COLUMN col SET NOT NULL;"
+              },
+              "id": "SM006",
+              "name": "AddNOTNULLorConstraintWithoutStagedValidation",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Add NOT NULL or Constraint Without Staged Validation"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects adding foreign-key or CHECK constraints without staged validation (NOT VALID)."
+              },
+              "help": {
+                "markdown": "### Remediation\nUse 2-step staged constraint addition: (1) Add constraint with NOT VALID: 'ALTER TABLE tbl ADD CONSTRAINT c_name ... NOT VALID;'; (2) Concurrently validate existing rows: 'ALTER TABLE tbl VALIDATE CONSTRAINT c_name;'.\n\n**Hazard Rationale:** Adding an unstaged Foreign Key acquires SHARE ROW EXCLUSIVE lock on the child table and SHARE lock on the parent table while scanning the entire table. Adding an unstaged CHECK constraint acquires ACCESS EXCLUSIVE lock, blocking both concurrent reads and writes.",
+                "text": "Use 2-step staged constraint addition: (1) Add constraint with NOT VALID: 'ALTER TABLE tbl ADD CONSTRAINT c_name ... NOT VALID;'; (2) Concurrently validate existing rows: 'ALTER TABLE tbl VALIDATE CONSTRAINT c_name;'."
+              },
+              "id": "SM007",
+              "name": "ForeignKeyorCHECKConstraintAdditionWithoutStagedValidation",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Foreign Key or CHECK Constraint Addition Without Staged Validation"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects foreign keys lacking supporting index on referencing columns (accounting for composite index leading column)."
+              },
+              "help": {
+                "markdown": "### Remediation\nCreate a supporting index on the foreign key referencing columns on the child table: 'CREATE INDEX idx_{child_table}_{referencing_column} ON {child_table} ({referencing_column});'.\n\n**Hazard Rationale:** When rows in the parent table are updated or deleted, PostgreSQL must lock or sequentially scan the child table to enforce referential integrity. Without an index on the child referencing columns, parent updates/deletes cause full table scans and severe lock queueing on the child table.",
+                "text": "Create a supporting index on the foreign key referencing columns on the child table: 'CREATE INDEX idx_{child_table}_{referencing_column} ON {child_table} ({referencing_column});'."
+              },
+              "id": "SM010",
+              "name": "UnindexedForeignKeyReferencingColumns",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Unindexed Foreign Key Referencing Columns"
+              }
+            }
+          ],
+          "version": "0.1.0"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

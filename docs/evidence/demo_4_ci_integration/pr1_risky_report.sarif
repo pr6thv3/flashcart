@@ -1,0 +1,278 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "artifacts": [
+        {
+          "location": {
+            "uri": "docs/evidence/demo_4_ci_integration/fixtures/pr1_risky_drop_description.sql"
+          },
+          "sourceLanguage": "sql"
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "exitCode": 1,
+          "exitCodeDescription": "Policy threshold breached"
+        }
+      ],
+      "results": [
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/evidence/demo_4_ci_integration/fixtures/pr1_risky_drop_description.sql"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ALTER TABLE products DROP COLUMN description;"
+                  },
+                  "startColumn": 5,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Destructive Column Drop: Dropping column 'description' from table 'products' immediately destroys column data and breaks backward compatibility for active application code in rolling deployments that continues to read or write this column."
+          },
+          "properties": {
+            "affectedObject": {
+              "column": "description",
+              "operation": "DROP_COLUMN",
+              "schema": "public",
+              "table": "products"
+            },
+            "confidence": "high",
+            "contextNotKnown": [
+              "table_row_count",
+              "live_query_dependencies"
+            ],
+            "contextUsed": {
+              "pg_version": 18,
+              "target_engine": "postgresql"
+            },
+            "evidence": "ALTER TABLE products DROP COLUMN description",
+            "recommendation": "Adopt expand-contract migration pattern: (1) Deprecate and remove column references from application code; (2) Deploy application release N; (3) Drop column in subsequent release N+1 after verifying no active queries access it.",
+            "severity": "high"
+          },
+          "ruleId": "SM002",
+          "ruleIndex": 1
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/pr6thv3/safemigrate",
+          "name": "safemigrate",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects DROP TABLE operations causing permanent data loss and rolling deployment query failures."
+              },
+              "help": {
+                "markdown": "### Remediation\nEmploy an expand-contract deprecation cycle: (1) Deprecate and remove table references from application code in release N; (2) Verify zero runtime queries access the table; (3) Archive data to cold storage and verify backups; (4) Drop the table in release N+1.\n\n**Hazard Rationale:** Dropping a table permanently deletes data and invalidates dependent views, foreign keys, and application queries. In rolling zero-downtime deployments, active application versions referencing the dropped table immediately crash with undefined table errors.",
+                "text": "Employ an expand-contract deprecation cycle: (1) Deprecate and remove table references from application code in release N; (2) Verify zero runtime queries access the table; (3) Archive data to cold storage and verify backups; (4) Drop the table in release N+1."
+              },
+              "id": "SM001",
+              "name": "DestructiveTableDrop",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Destructive Table Drop"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects ALTER TABLE ... DROP COLUMN operations causing data loss and breaking rolling deployments."
+              },
+              "help": {
+                "markdown": "### Remediation\nAdopt expand-contract migration pattern: (1) Deprecate and remove column references from application code; (2) Deploy application release N; (3) Drop column in subsequent release N+1 after verifying no active queries access it.\n\n**Hazard Rationale:** Dropping a column immediately breaks backward compatibility in rolling deployments where older application instances continue selecting or updating the column. Stored column data is permanently destroyed.",
+                "text": "Adopt expand-contract migration pattern: (1) Deprecate and remove column references from application code; (2) Deploy application release N; (3) Drop column in subsequent release N+1 after verifying no active queries access it."
+              },
+              "id": "SM002",
+              "name": "DestructiveColumnDrop",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Destructive Column Drop"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects ALTER COLUMN TYPE which acquires ACCESS EXCLUSIVE lock and may rewrite table rows."
+              },
+              "help": {
+                "markdown": "### Remediation\nEmploy staged column expansion: (1) Add a new column with the target type; (2) Dual-write in application code; (3) Backfill historical rows in bounded batches; (4) Switch application reads and writes to the new column; (5) Drop the old column in a later release.\n\n**Hazard Rationale:** Altering a column type acquires an ACCESS EXCLUSIVE lock on the table, blocking all concurrent reads and writes. In PostgreSQL, most type changes force a full table rewrite and index rebuild.",
+                "text": "Employ staged column expansion: (1) Add a new column with the target type; (2) Dual-write in application code; (3) Backfill historical rows in bounded batches; (4) Switch application reads and writes to the new column; (5) Drop the old column in a later release."
+              },
+              "id": "SM003",
+              "name": "ColumnTypeAlterationLock/RewriteHazard",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Column Type Alteration Lock/Rewrite Hazard"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects CREATE INDEX without CONCURRENTLY which takes a SHARE lock and blocks writes."
+              },
+              "help": {
+                "markdown": "### Remediation\nUse CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally.\n\n**Hazard Rationale:** Standard CREATE INDEX acquires a SHARE lock on the target table (or SHARE ROW EXCLUSIVE for UNIQUE indexes). While reads (SELECT) are permitted, all write operations (INSERT, UPDATE, DELETE) are blocked until index build finishes.",
+                "text": "Use CREATE INDEX CONCURRENTLY outside an explicit transaction block, or configure the migration runner to execute this statement non-transactionally."
+              },
+              "id": "SM004",
+              "name": "Non-ConcurrentIndexCreationWriteLockout",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Non-Concurrent Index Creation Write Lockout"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Detects CREATE INDEX CONCURRENTLY executed inside explicit or runner-wrapped transaction blocks."
+              },
+              "help": {
+                "markdown": "### Remediation\nExecute CREATE INDEX CONCURRENTLY non-transactionally: remove in-file BEGIN/COMMIT blocks, or configure your migration runner (e.g. node-pg-migrate transaction: false, Flyway, Prisma) to disable transaction wrapping.\n\n**Hazard Rationale:** PostgreSQL strictly prohibits running CREATE INDEX CONCURRENTLY within a transaction block, raising: 'ERROR: CREATE INDEX CONCURRENTLY cannot run inside a transaction block'. This causes immediate migration failure.",
+                "text": "Execute CREATE INDEX CONCURRENTLY non-transactionally: remove in-file BEGIN/COMMIT blocks, or configure your migration runner (e.g. node-pg-migrate transaction: false, Flyway, Prisma) to disable transaction wrapping."
+              },
+              "id": "SM005",
+              "name": "Transaction-WrappedConcurrentIndexCreation",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Transaction-Wrapped Concurrent Index Creation"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects adding NOT NULL or constraint directly without staged validation causing table scan lockups."
+              },
+              "help": {
+                "markdown": "### Remediation\nUse 3-step staged NOT NULL validation pattern (PostgreSQL 12+): (1) ALTER TABLE tbl ADD CONSTRAINT chk_col_not_null CHECK (col IS NOT NULL) NOT VALID; (2) ALTER TABLE tbl VALIDATE CONSTRAINT chk_col_not_null; (3) ALTER TABLE tbl ALTER COLUMN col SET NOT NULL;\n\n**Hazard Rationale:** Applying SET NOT NULL directly to an existing column requires a full table scan while holding an ACCESS EXCLUSIVE lock to verify no NULL values exist. Adding a NOT NULL column without a default value fails immediately if rows already exist.",
+                "text": "Use 3-step staged NOT NULL validation pattern (PostgreSQL 12+): (1) ALTER TABLE tbl ADD CONSTRAINT chk_col_not_null CHECK (col IS NOT NULL) NOT VALID; (2) ALTER TABLE tbl VALIDATE CONSTRAINT chk_col_not_null; (3) ALTER TABLE tbl ALTER COLUMN col SET NOT NULL;"
+              },
+              "id": "SM006",
+              "name": "AddNOTNULLorConstraintWithoutStagedValidation",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Add NOT NULL or Constraint Without Staged Validation"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects adding foreign-key or CHECK constraints without staged validation (NOT VALID)."
+              },
+              "help": {
+                "markdown": "### Remediation\nUse 2-step staged constraint addition: (1) Add constraint with NOT VALID: 'ALTER TABLE tbl ADD CONSTRAINT c_name ... NOT VALID;'; (2) Concurrently validate existing rows: 'ALTER TABLE tbl VALIDATE CONSTRAINT c_name;'.\n\n**Hazard Rationale:** Adding an unstaged Foreign Key acquires SHARE ROW EXCLUSIVE lock on the child table and SHARE lock on the parent table while scanning the entire table. Adding an unstaged CHECK constraint acquires ACCESS EXCLUSIVE lock, blocking both concurrent reads and writes.",
+                "text": "Use 2-step staged constraint addition: (1) Add constraint with NOT VALID: 'ALTER TABLE tbl ADD CONSTRAINT c_name ... NOT VALID;'; (2) Concurrently validate existing rows: 'ALTER TABLE tbl VALIDATE CONSTRAINT c_name;'."
+              },
+              "id": "SM007",
+              "name": "ForeignKeyorCHECKConstraintAdditionWithoutStagedValidation",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Foreign Key or CHECK Constraint Addition Without Staged Validation"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detects foreign keys lacking supporting index on referencing columns (accounting for composite index leading column)."
+              },
+              "help": {
+                "markdown": "### Remediation\nCreate a supporting index on the foreign key referencing columns on the child table: 'CREATE INDEX idx_{child_table}_{referencing_column} ON {child_table} ({referencing_column});'.\n\n**Hazard Rationale:** When rows in the parent table are updated or deleted, PostgreSQL must lock or sequentially scan the child table to enforce referential integrity. Without an index on the child referencing columns, parent updates/deletes cause full table scans and severe lock queueing on the child table.",
+                "text": "Create a supporting index on the foreign key referencing columns on the child table: 'CREATE INDEX idx_{child_table}_{referencing_column} ON {child_table} ({referencing_column});'."
+              },
+              "id": "SM010",
+              "name": "UnindexedForeignKeyReferencingColumns",
+              "properties": {
+                "precision": "high",
+                "tags": [
+                  "migration",
+                  "postgresql",
+                  "database-safety"
+                ]
+              },
+              "shortDescription": {
+                "text": "Unindexed Foreign Key Referencing Columns"
+              }
+            }
+          ],
+          "version": "0.1.0"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

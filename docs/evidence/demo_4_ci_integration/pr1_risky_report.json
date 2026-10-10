@@ -1,0 +1,65 @@
+{
+  "diagnostics": [],
+  "findings": [
+    {
+      "affected_object": {
+        "column": "description",
+        "constraint": null,
+        "index": null,
+        "operation": "DROP_COLUMN",
+        "schema": "public",
+        "table": "products"
+      },
+      "column": 5,
+      "confidence": "high",
+      "context_not_known": [
+        "table_row_count",
+        "live_query_dependencies"
+      ],
+      "context_used": {
+        "pg_version": 18,
+        "target_engine": "postgresql"
+      },
+      "evidence": "ALTER TABLE products DROP COLUMN description",
+      "explanation": "Dropping column 'description' from table 'products' immediately destroys column data and breaks backward compatibility for active application code in rolling deployments that continues to read or write this column.",
+      "file": "docs/evidence/demo_4_ci_integration/fixtures/pr1_risky_drop_description.sql",
+      "line": 3,
+      "recommendation": "Adopt expand-contract migration pattern: (1) Deprecate and remove column references from application code; (2) Deploy application release N; (3) Drop column in subsequent release N+1 after verifying no active queries access it.",
+      "rule_id": "SM002",
+      "rule_title": "Destructive Column Drop",
+      "rule_version": "1.0.0",
+      "severity": "high",
+      "statement": "ALTER TABLE products DROP COLUMN description;"
+    }
+  ],
+  "migration_transaction_mode": "wrapped",
+  "pg_version": 18,
+  "policy": {
+    "exit_code": 1,
+    "fail_on": "high",
+    "passed": false
+  },
+  "scan_timestamp": "2026-10-09T19:52:06.624455+00:00",
+  "scanned_files": [
+    "docs/evidence/demo_4_ci_integration/fixtures/pr1_risky_drop_description.sql"
+  ],
+  "schema_version": "1.0",
+  "summary": {
+    "parse_errors": 0,
+    "severities": {
+      "critical": 0,
+      "high": 1,
+      "info": 0,
+      "low": 0,
+      "medium": 0
+    },
+    "total_files": 1,
+    "total_findings": 1,
+    "total_statements": 1
+  },
+  "target_engine": "postgresql",
+  "tool": {
+    "name": "safemigrate",
+    "version": "0.1.0"
+  }
+}

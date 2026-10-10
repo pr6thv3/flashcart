@@ -1,0 +1,92 @@
+========================================================================
+DEMONSTRATION 4: CI PULL REQUEST GATE INTEGRATION PROOF
+========================================================================
+Timestamp:           2026-10-09T19:52:06Z
+SafeMigrate Version: safemigrate 0.1.0
+SafeMigrate Binary:  /home/pr6thv3/flashcart_safemigrate_workspace/safemigrate/.venv/bin/safemigrate
+FlashCart Commit:    eb53847
+SafeMigrate Commit:  cc464fa
+Policy Threshold:    --fail-on high
+========================================================================
+
+------------------------------------------------------------------------
+SCENARIO 1: PR #101 — Risky Migration (DROP COLUMN description)
+Branch: feature/drop-product-description | Author: contributor-alice
+------------------------------------------------------------------------
+[CI Runner] Executing GitHub Actions step: 'Run SafeMigrate Scan on Migrations'...
+╭────────────────────────────── SafeMigrate Scan ──────────────────────────────╮
+│ SafeMigrate v0.1.0 — PostgreSQL Migration Risk Analyzer                      │
+│ Target Engine: postgresql (v18) | Runner Mode: wrapped                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+                                  Scan Summary                                  
+┏━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━┳━━━━━━━━┳━━━━━┳━━━━━━━━━━━┓
+┃   Files   ┃          ┃          ┃          ┃      ┃        ┃     ┃   Parse   ┃
+┃  Scanned  ┃ Stateme… ┃ Findings ┃ Critical ┃ High ┃ Medium ┃ Low ┃  Errors   ┃
+┡━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━╇━━━━━━━━╇━━━━━╇━━━━━━━━━━━┩
+│     1     │    1     │    1     │    0     │  1   │   0    │  0  │     0     │
+└───────────┴──────────┴──────────┴──────────┴──────┴────────┴─────┴───────────┘
+
+Migration Findings:
+┏━━━━━━━┳━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Rule  ┃ Sev  ┃ Conf ┃ Location                  ┃ Statement                  ┃
+┡━━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ SM002 │ high │ high │ docs/evidence/demo_4_ci_… │ ALTER TABLE products DROP  │
+│       │      │      │                           │ COLUMN description;        │
+└───────┴──────┴──────┴───────────────────────────┴────────────────────────────┘
+╭───────────────────────────── Finding #1 (SM002) ─────────────────────────────╮
+│ Rule: SM002 — Destructive Column Drop                                        │
+│ Location:                                                                    │
+│ docs/evidence/demo_4_ci_integration/fixtures/pr1_risky_drop_description.sql: │
+│ 3:5                                                                          │
+│ Statement: ALTER TABLE products DROP COLUMN description;                     │
+│ Evidence: ALTER TABLE products DROP COLUMN description                       │
+│ Explanation: Dropping column 'description' from table 'products' immediately │
+│ destroys column data and breaks backward compatibility for active            │
+│ application code in rolling deployments that continues to read or write this │
+│ column.                                                                      │
+│ Recommendation: Adopt expand-contract migration pattern: (1) Deprecate and   │
+│ remove column references from application code; (2) Deploy application       │
+│ release N; (3) Drop column in subsequent release N+1 after verifying no      │
+│ active queries access it.                                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ FAILED (POLICY): Findings breached policy threshold (high).                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+[CI Gate Assessment PR #101]:
+  - Exit Code Observed: 1 (Expected: 1)
+  ✓ Policy Threshold Breached: SM002 (High severity, High confidence).
+  ✓ CI Gate Status: FAILED (Exit 1) — PR Merge BLOCKED.
+
+------------------------------------------------------------------------
+SCENARIO 2: PR #102 — Additive Backward-Compatible Migration
+Branch: feature/add-orders-vendor-note | Author: contributor-bob
+------------------------------------------------------------------------
+[CI Runner] Executing GitHub Actions step: 'Run SafeMigrate Scan on Migrations'...
+╭────────────────────────────── SafeMigrate Scan ──────────────────────────────╮
+│ SafeMigrate v0.1.0 — PostgreSQL Migration Risk Analyzer                      │
+│ Target Engine: postgresql (v18) | Runner Mode: wrapped                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+                                  Scan Summary                                  
+┏━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━┳━━━━━━━━┳━━━━━┳━━━━━━━━━━━┓
+┃   Files   ┃          ┃          ┃          ┃      ┃        ┃     ┃   Parse   ┃
+┃  Scanned  ┃ Stateme… ┃ Findings ┃ Critical ┃ High ┃ Medium ┃ Low ┃  Errors   ┃
+┡━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━╇━━━━━━━━╇━━━━━╇━━━━━━━━━━━┩
+│     1     │    1     │    0     │    0     │  0   │   0    │  0  │     0     │
+└───────────┴──────────┴──────────┴──────────┴──────┴────────┴─────┴───────────┘
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ PASSED: No findings breached policy threshold.                               │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+[CI Gate Assessment PR #102]:
+  - Exit Code Observed: 0 (Expected: 0)
+  ✓ No findings breached policy threshold (--fail-on high).
+  ✓ CI Gate Status: PASSED (Exit 0) — PR Merge PERMITTED.
+
+========================================================================
+DEMONSTRATION 4 PROOF COMPLETE: DUAL PR GATE VERIFIED AND RECORDED
+========================================================================
+Artifacts written to:
+  - /home/pr6thv3/flashcart_safemigrate_workspace/flashcart/docs/evidence/demo_4_ci_integration
+  - /home/pr6thv3/flashcart_safemigrate_workspace/safemigrate/docs/evidence/demo_4_ci_integration
+

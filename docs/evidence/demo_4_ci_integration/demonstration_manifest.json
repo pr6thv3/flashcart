@@ -1,0 +1,65 @@
+{
+  "demonstration_id": "DEMO-04-CI-INTEGRATION",
+  "requirement": "R4 / Document 08 §Demo 4",
+  "timestamp": "2026-10-09T19:52:06Z",
+  "analyzer": {
+    "name": "safemigrate",
+    "version": "0.1.0",
+    "git_commit": "cc464fa"
+  },
+  "target_application": {
+    "name": "flashcart",
+    "git_commit": "eb53847"
+  },
+  "environment": {
+    "ci_runner": "GitHub Actions workflow .github/workflows/safemigrate-gate.yml",
+    "policy_threshold": "--fail-on high",
+    "migration_transaction_mode": "wrapped"
+  },
+  "scenarios": [
+    {
+      "pr_number": 101,
+      "branch": "feature/drop-product-description",
+      "fixture": "fixtures/pr1_risky_drop_description.sql",
+      "migration_statement": "ALTER TABLE products DROP COLUMN description;",
+      "expected_rule": "SM002",
+      "severity": "high",
+      "confidence": "high",
+      "expected_exit_code": 1,
+      "observed_exit_code": 1,
+      "gate_decision": "BLOCKED",
+      "sarif_report": "pr1_risky_report.sarif",
+      "json_report": "pr1_risky_report.json",
+      "console_log": "pr1_console.log"
+    },
+    {
+      "pr_number": 102,
+      "branch": "feature/add-orders-vendor-note",
+      "fixture": "fixtures/pr2_additive_vendor_note.sql",
+      "migration_statement": "ALTER TABLE orders ADD COLUMN vendor_note TEXT;",
+      "expected_rule": null,
+      "severity": null,
+      "confidence": null,
+      "expected_exit_code": 0,
+      "observed_exit_code": 0,
+      "gate_decision": "PASSED",
+      "sarif_report": "pr2_additive_report.sarif",
+      "json_report": "pr2_additive_report.json",
+      "console_log": "pr2_console.log"
+    }
+  ],
+  "artifacts": [
+    "fixtures/pr1_risky_drop_description.sql",
+    "fixtures/pr2_additive_vendor_note.sql",
+    "pr1_risky_report.sarif",
+    "pr1_risky_report.json",
+    "pr1_console.log",
+    "pr2_additive_report.sarif",
+    "pr2_additive_report.json",
+    "pr2_console.log",
+    "demo_4_console.log",
+    "terminal_output.txt",
+    "demonstration_manifest.json",
+    "DEMO_4_SUMMARY.md"
+  ]
+}

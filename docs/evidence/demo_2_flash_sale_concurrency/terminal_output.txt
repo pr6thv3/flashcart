@@ -1,0 +1,251 @@
+========================================================================
+FLASHCART DEMONSTRATION 2: 200-CONCURRENCY FLASH SALE STRESS TEST
+========================================================================
+
+[Setup] Initializing test fixture with Run ID: mv1dl2c0seho
+[Setup] Seeded 200 buyer users, product 654db599-5111-4dc4-95c9-6769acddc9d6, and flash sale b8ecc00f-825f-4cc4-b9f2-efaa0651bbd3.
+[Setup] Initial flash sale stock limit: 10, physical inventory: 100.
+
+--- PART A: Executing 200 Concurrent Checkout Reservation Requests ---
+{"level":"info","requestId":"c1563bfb-8611-4f75-aba2-3cbe637ce211","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":122,"userId":"4430c0b0-aaba-449a-a378-e3233923d128"}
+{"level":"info","requestId":"568864ad-4f93-4b19-94fd-d43ea2491b2d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":128,"userId":"235c8416-000f-4214-a3a8-d578dc51334d"}
+{"level":"info","requestId":"4c5a0787-f78c-4f98-b26e-d22ec3d48488","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":143,"userId":"c26d7b0a-f7c2-42b5-bd74-155641bc8b31"}
+{"level":"info","requestId":"08d426b3-4677-4bdf-9a2c-4fb49930bc72","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":158,"userId":"a2c5b2d0-36dc-4a15-ae0a-d1230cd30ea2"}
+{"level":"info","requestId":"3ddf8342-5b65-478d-96a0-8de7bac3260f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":170,"userId":"72c63854-f7f6-4696-b606-10ac36260b61"}
+{"level":"info","requestId":"b96e79e1-3f21-40d8-a4e9-2b73a1c9f1a2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":183,"userId":"77c2d10e-23b7-4e1e-afce-16f000c531a4"}
+{"level":"info","requestId":"6da37179-27dc-48f2-820d-94abea1f5f6a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":196,"userId":"ba7d782f-cc38-4fcc-9088-972e3f8dbd1c"}
+{"level":"info","requestId":"366ce23f-c695-4c01-8b15-98b8dc87b292","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":207,"userId":"4906a2d1-869d-4d20-9573-6f921a548fe1"}
+{"level":"info","requestId":"d7335b55-9aba-4e84-81ef-e7504989851d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":227,"userId":"2d345405-9688-482c-bff8-35c5bd74033b"}
+{"level":"info","requestId":"efdff5ee-7b53-417c-9036-3eb17aaf7d3c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":201,"durationMs":242,"userId":"3b931563-399a-41ac-bc81-8592951717c2"}
+{"level":"info","requestId":"76f97e95-97d3-4d73-9548-a022825d9186","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":250,"userId":"a783e48b-4cac-4c50-97b7-6c2a1319dcd2"}
+{"level":"info","requestId":"59f27d4e-4259-4c27-a75c-df07cef00459","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":253,"userId":"ce73e560-4bd3-4e69-92f5-ab4a444b6e42"}
+{"level":"info","requestId":"3ae16230-3eaa-42cd-bb29-9354e34cef25","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":264,"userId":"cf7f7ea6-85ae-475c-b2c5-5dc0cd7beee8"}
+{"level":"info","requestId":"6f87a3e8-49d3-4ba8-b165-5369d0f41f8e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":270,"userId":"d222440a-4cad-4ed8-abd2-3c3563e66847"}
+{"level":"info","requestId":"8515db09-57bb-45ad-97c4-dd2c70e2c7fd","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":276,"userId":"8980dc24-bf8c-4465-beef-3a346109773c"}
+{"level":"info","requestId":"d711e1ba-5fd6-4ef3-b614-eae8cd09090a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":286,"userId":"08c02ae0-a813-4581-96cf-9b96d0b23746"}
+{"level":"info","requestId":"eea0264e-07a8-470c-84a3-0c98b9ca5cd7","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":288,"userId":"1d5f3b16-cec8-4114-9167-398c8c750fd5"}
+{"level":"info","requestId":"f3701056-7788-4406-8083-0a0d984175c3","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":300,"userId":"06092baf-00dc-4fa0-85e3-a6fef9ed57d8"}
+{"level":"info","requestId":"d98a4d40-a084-40b4-a4ac-d3a4e81365e0","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":300,"userId":"2068c2e4-9021-4af6-9b93-a9f3766adb1a"}
+{"level":"info","requestId":"d384700c-1928-4480-8e4b-172c95a03241","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":304,"userId":"c8375c9f-f092-4ea1-adf0-f3ed5ed57995"}
+{"level":"info","requestId":"031190a7-d61d-4c65-97ee-04525ce75628","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":308,"userId":"9657f6c1-6aef-4186-8f3c-64a1b21ede02"}
+{"level":"info","requestId":"210bcc1e-0e2d-490f-835b-fbe55cbb46a8","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":309,"userId":"a2ac5c42-1632-4724-a09e-c53262ffecdd"}
+{"level":"info","requestId":"a15b9b5b-d2e5-477d-80f7-4fe554c3c026","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":312,"userId":"0e5648be-417d-44c7-a400-f5e3b2d631dc"}
+{"level":"info","requestId":"e93dbeef-b3e7-4897-8907-e507ca3cbe16","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":314,"userId":"dc8767a6-5ded-4f48-a454-ecd90fb0b197"}
+{"level":"info","requestId":"1fa219d0-d395-400d-b10d-a228a832d22e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":317,"userId":"401d2b09-19b6-4273-a8a7-39b9822f765a"}
+{"level":"info","requestId":"acbc333e-4246-4102-b17f-b6ce38df72b7","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":320,"userId":"bf7e457b-a614-4fad-9103-0b6db5529063"}
+{"level":"info","requestId":"827726d8-ccf7-4864-92cc-91e190e3c936","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":329,"userId":"535a54c9-67f6-47a3-ba4c-f99943d48023"}
+{"level":"info","requestId":"5fa9f0cd-f15b-4d6e-ae13-5165431b3914","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":331,"userId":"9a4a72ea-2c30-4d65-8bf6-d37f41f2936a"}
+{"level":"info","requestId":"93f5c463-8b08-47aa-9100-b9c5ced20ac3","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":326,"userId":"8abaf840-27ae-445d-85ad-e6cb5de03614"}
+{"level":"info","requestId":"4e696abf-351f-41d8-946e-aa6a85cc19a6","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":329,"userId":"080c474e-aec3-485d-9b6d-a55bd7b71c1a"}
+{"level":"info","requestId":"d86cb432-2c5d-4357-a7ee-328a38a45934","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":336,"userId":"9cea6e4b-0aac-472b-8d06-ef1665032573"}
+{"level":"info","requestId":"f71052a6-94cc-4c54-8c77-36c2f40815bc","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":343,"userId":"e99a4b95-a84f-447a-b839-4b59f9ab6f75"}
+{"level":"info","requestId":"3cf1fe08-711a-4f57-8bac-43c830e39800","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":349,"userId":"475662e0-c31c-454e-8a70-75acd47709cf"}
+{"level":"info","requestId":"06358f48-7afb-4656-acc6-d4235a60ba8e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":352,"userId":"16325329-6bc9-4e97-9f1c-2823951a481f"}
+{"level":"info","requestId":"82eb5739-ad97-4c83-8119-8234120665e8","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":356,"userId":"f6ad6864-a560-4502-9875-3d3832907e8a"}
+{"level":"info","requestId":"c05b8bc9-345d-4c8d-a3aa-2a433c11f576","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":359,"userId":"3d4d3dcd-4c6e-4a4c-b70f-7c64735efccf"}
+{"level":"info","requestId":"ee450ab7-422f-44a9-bd4d-43b77ca57a6a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":363,"userId":"affbdd34-630d-462f-bc41-efa9abf0a27e"}
+{"level":"info","requestId":"79a12279-5139-43ff-bfef-eebf425d9f1e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":366,"userId":"2f4b820f-a7cf-473a-9aad-6552c3851607"}
+{"level":"info","requestId":"57d2d94f-0430-4691-959e-1d0447131cad","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":374,"userId":"8fae692b-4bed-416a-abc2-00893b25ab5c"}
+{"level":"info","requestId":"72cabc45-9531-4005-a443-fc682f170f4c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":375,"userId":"a9f161ff-9f30-4948-94d9-90dacc4a5729"}
+{"level":"info","requestId":"98079f95-5f32-426d-b019-0dd121964fe1","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":383,"userId":"6884468f-3308-4e6f-8f73-11f9b16cd58b"}
+{"level":"info","requestId":"cad9f16e-13ce-4813-be2f-82e77aa511bf","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":379,"userId":"5685c721-b321-4d32-8fbd-11c268e740ec"}
+{"level":"info","requestId":"53b2795e-642f-4fb5-a478-1256d3a8c9ff","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":389,"userId":"b7141460-3a7e-4fc3-867d-88fb3c55cbc2"}
+{"level":"info","requestId":"f77ed32c-e33c-4565-b396-3fa2ae80a01b","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":390,"userId":"4d873fae-19cc-4e32-98b7-3384e98eadad"}
+{"level":"info","requestId":"724bdfb7-b980-4cee-b0ca-ce15e546a739","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":388,"userId":"b93334d7-ceda-49b1-87db-39681ce46fe3"}
+{"level":"info","requestId":"d2a6ee93-b5ce-4ae6-b4ad-460d0fce8a79","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":392,"userId":"2040fcbc-d4a9-46b3-871f-387391137b2c"}
+{"level":"info","requestId":"0c45e23b-1d93-4c92-89c4-053f05d3c24c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":395,"userId":"f95b5448-8c08-421b-b9fe-b2e9bc4545fa"}
+{"level":"info","requestId":"103506d0-e7f8-4fb9-b5ea-7d39b10a7f11","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":398,"userId":"4d07fe9c-af49-418e-9c67-1951916400d7"}
+{"level":"info","requestId":"0702a1c4-9e7f-4f21-8381-e6c9fdcf6cc0","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":401,"userId":"4c3e4db4-2142-4142-bf79-59f33f92f139"}
+{"level":"info","requestId":"fcad8251-bfb0-499f-ab82-6f98ccbcd725","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":413,"userId":"a7e5c9a8-92db-40f9-a2b1-72cf94ec47d0"}
+{"level":"info","requestId":"c55da79d-bfcf-4a2e-bc65-bcb52b9cbd66","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":416,"userId":"28544227-ec88-4ab7-b372-b4a1f2893392"}
+{"level":"info","requestId":"57d90ab4-dc44-4a4a-9ecb-6905df72088c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":410,"userId":"7e01287b-bae5-4007-8e3a-723d6be1d246"}
+{"level":"info","requestId":"1eb7d636-0308-42d4-8065-43f2dc5faeba","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":413,"userId":"872e67f8-391e-437f-b833-b8ac9d98e9df"}
+{"level":"info","requestId":"c86fdc31-50be-4f80-b466-12bc1ebf61fb","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":415,"userId":"5e8359f3-c7ed-4efc-8d64-42bcc812b5a2"}
+{"level":"info","requestId":"05a868ec-5bb1-46f5-8e1d-e9a5e7522230","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":418,"userId":"87e1bd76-29a6-4150-a8c0-8b27f5f5e813"}
+{"level":"info","requestId":"1c83bd1c-a45e-43c7-ad5c-74f9f2ad2ae8","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":421,"userId":"7ea43dea-94bf-44ab-ab0c-e5d0373c7c1a"}
+{"level":"info","requestId":"69a1b765-1419-462b-a237-63a130b43f74","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":424,"userId":"255588c5-e9cb-490e-8bed-5728a143b1ee"}
+{"level":"info","requestId":"ea9ee8f1-cdbc-4f28-8f54-f0032011652c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":426,"userId":"5b67ff08-08fc-4ca0-8668-3e0570d8e585"}
+{"level":"info","requestId":"6797185b-83eb-4e30-9739-3c9f864ef868","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":429,"userId":"b4c26e98-db48-4d0e-81f5-42c5f18e33e3"}
+{"level":"info","requestId":"f09fc3b0-236c-4e40-a857-e9f465159cd0","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":432,"userId":"43354e14-f042-49e8-a60e-f5734774b4cc"}
+{"level":"info","requestId":"09169b3d-5f4c-4d9f-ab61-0e70b7618641","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":435,"userId":"a45740c3-e807-406c-9274-583910c115b9"}
+{"level":"info","requestId":"d82717d9-c89c-4f92-985b-b19c0dacbadc","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":438,"userId":"c5fe4590-20d4-48dd-abe0-d947aa3ce9dd"}
+{"level":"info","requestId":"d31a844d-f5c0-4f85-af70-1abf1077b823","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":440,"userId":"6f958d24-72b6-42f3-8828-ad872e596fb1"}
+{"level":"info","requestId":"63978a05-f4a3-48df-8e92-e9e5a2bdf01d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":442,"userId":"6e5bed78-e8eb-44b1-ac09-594515418673"}
+{"level":"info","requestId":"47e012d5-05b1-489c-bf26-0c6b0d447ce7","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":446,"userId":"549b87f9-8802-4320-b7e9-b1413776e764"}
+{"level":"info","requestId":"2b52750b-3a3e-4d0a-8543-31daabb877f6","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":453,"userId":"d4992e3e-08b5-4caa-8cc6-9e5f3ea2e0cd"}
+{"level":"info","requestId":"9423dd6d-0228-4085-90ca-83c20f418565","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":455,"userId":"31ddc7a8-f87a-476e-802b-912b3359fd76"}
+{"level":"info","requestId":"d2797242-93ab-4583-8063-ec8529a56e65","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":458,"userId":"d037070a-1963-4e29-9c12-7b0d01cd78af"}
+{"level":"info","requestId":"727d0315-0283-4c88-8cbf-11b9941d7cfa","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":460,"userId":"3ff64f1e-0e38-4a38-a5bd-7008c27c1ba9"}
+{"level":"info","requestId":"570951ca-a151-4c4d-b875-3c04920a3598","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":462,"userId":"5a029e41-653c-48c1-ae18-bc67110dcf89"}
+{"level":"info","requestId":"7c5d9655-2fb1-43f9-8133-b275eeac966c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":465,"userId":"c780a451-b5ab-4353-b1b3-493c2d18c7fa"}
+{"level":"info","requestId":"757a244a-aa04-4884-8c1d-47c6a52380f9","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":468,"userId":"b900f81f-1a2c-4820-886b-853fabaf9f8b"}
+{"level":"info","requestId":"ed09322f-9e40-4f3a-b2cc-22d0f3fae019","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":470,"userId":"de9020af-cd43-4638-9d45-1d791f5de589"}
+{"level":"info","requestId":"fd634f78-3772-4080-9df7-72009ffaac8d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":473,"userId":"796e8ac4-91b3-4f6d-9426-2115f13eca73"}
+{"level":"info","requestId":"ab453c03-23e4-4980-8da0-fcc81573e792","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":476,"userId":"87bfb341-46f8-41bd-a44f-41065edd0993"}
+{"level":"info","requestId":"e70220e7-742f-4a81-b1b1-f7097f4b9f00","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":478,"userId":"d4babcc5-a4b0-4cab-b882-4560dfc5a89d"}
+{"level":"info","requestId":"d6ef239c-6b79-4987-ab00-822bfc316a25","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":487,"userId":"97035a3f-ed88-4b02-84f7-fe051a832224"}
+{"level":"info","requestId":"88790105-6498-4696-af6f-1405b76bee71","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":485,"userId":"554b8c63-7a35-48da-ae23-a25c775c480c"}
+{"level":"info","requestId":"609beac5-7e19-4e49-8cad-41df0e51fe8a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":485,"userId":"f14339b7-cffc-4316-aba1-15ba27cfad86"}
+{"level":"info","requestId":"555fee52-bc26-4cf5-ac35-42950ce10faf","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":487,"userId":"3e55ba10-10d1-4ec6-8a1a-f5dc00f64e70"}
+{"level":"info","requestId":"567c0900-0d64-4f1c-b352-01cdb218ee77","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":490,"userId":"a3d2e1a7-4152-4b3a-b7fc-329e575cbd0d"}
+{"level":"info","requestId":"444b7c29-b6c3-41e5-a4a1-2f14e620436a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":494,"userId":"f7287cba-9969-4fc0-9abd-45a5880c6801"}
+{"level":"info","requestId":"13cfdc92-0363-4edd-934e-5b680c59f844","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":502,"userId":"f9ec1dcc-3039-4054-b0ae-835a4a1915d2"}
+{"level":"info","requestId":"f7188ab9-0496-4fee-9b52-c61a5c4e2174","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":510,"userId":"f01a25fe-abd3-4bb9-9e55-cb9c6ba55f07"}
+{"level":"info","requestId":"059d13ef-6fc7-4b0c-9c47-9538b6ec4b71","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":517,"userId":"7346915f-8eb8-4e83-b5f4-c1fe25a557da"}
+{"level":"info","requestId":"82a6a8c7-9213-488e-809d-0639f174c4ec","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":524,"userId":"f792fe71-5c6f-4f9e-9894-cf64b06e3d50"}
+{"level":"info","requestId":"2fd0df7d-b8f3-46d5-966c-3ff7b7c7f240","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":532,"userId":"6634f74e-961b-4677-9731-efb3c708400b"}
+{"level":"info","requestId":"d1e60016-9bc8-49f1-a44f-ce557169b9f6","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":540,"userId":"aaa26831-cde3-4e5a-add6-df778e556d3b"}
+{"level":"info","requestId":"92ccf0bf-beed-4c3d-83a1-8bb109327d56","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":544,"userId":"7ebcb81b-2d28-466c-9b30-7bb70894438d"}
+{"level":"info","requestId":"40c78b5f-b453-4fe6-ba6e-28e260e84c0f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":547,"userId":"3f1b93c5-a5e2-415a-ba9e-8f6054a11219"}
+{"level":"info","requestId":"429a2ce8-5498-48ba-8e9b-ed474be7594f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":553,"userId":"d01fabe1-0042-4819-a653-9c50868a29ad"}
+{"level":"info","requestId":"d0d8d890-6680-45b4-b21f-017a4b3b6b53","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":560,"userId":"9a6759b8-9845-4501-9ca1-0ef5c1f832d8"}
+{"level":"info","requestId":"3722d6fb-4836-49ee-9b79-278b7e892afc","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":565,"userId":"78e601f3-0a18-4e1b-8c2e-d95e948910e6"}
+{"level":"info","requestId":"67bb96e4-7d62-4f36-9700-2a157a14965d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":571,"userId":"430c4b0b-d1e0-49f8-89af-e738f3622572"}
+{"level":"info","requestId":"f647f848-3a4b-4be3-bfea-40cb04db9231","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":572,"userId":"5ac04ca8-3bd2-4a1b-9c37-832166732eaa"}
+{"level":"info","requestId":"b24596c6-3805-41e2-a655-09af1702b991","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":576,"userId":"183bc32a-b81a-4983-b4c9-71c49215584b"}
+{"level":"info","requestId":"86d5667b-f1cf-4c0c-b93f-da76108584cc","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":580,"userId":"02e6786f-59b9-4ac5-935f-64cc2c45d934"}
+{"level":"info","requestId":"7abffd37-a669-40af-b5b7-b202734fcbf4","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":583,"userId":"172306d8-7d82-40eb-8dce-53706ff93784"}
+{"level":"info","requestId":"b52a6d06-ca5b-4afa-877f-c3c0c09b5871","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":586,"userId":"d8209650-c0da-461c-870a-f666ecdeffa0"}
+{"level":"info","requestId":"9994f8c1-02e4-4080-b192-88f8d05b9b5b","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":588,"userId":"86cf3214-9ca6-4c55-a97e-01b7d0931180"}
+{"level":"info","requestId":"e33a4eb5-7be8-4fd6-abbe-d00ae043f86d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":592,"userId":"a9250642-888d-4771-bcd6-7bcec4e8784d"}
+{"level":"info","requestId":"162ed5c8-84ce-42fe-aa50-62fa8be45019","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":595,"userId":"9b4c9c87-88e8-4148-ad5d-d2f76cffd963"}
+{"level":"info","requestId":"7e966306-0dcc-46b3-8000-07ddad16e566","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":599,"userId":"104b4711-33c2-430f-bfa1-803dafc6d81a"}
+{"level":"info","requestId":"634a47e0-779c-4dcd-8575-ff5fad0341be","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":602,"userId":"f3c6984e-ff7c-4e6a-ba49-3773df9b92ac"}
+{"level":"info","requestId":"84245246-d4ff-4cc8-8667-0a80c2961e43","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":604,"userId":"4a98fc36-c3c2-409a-bd53-ea816c0f5887"}
+{"level":"info","requestId":"5d87ce0e-1ec0-4fdc-81c7-90b5e50bb5fd","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":607,"userId":"60aaa13f-a5b3-48b7-8616-77c770560634"}
+{"level":"info","requestId":"0a049ecb-8478-4a23-90e9-f401a085366d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":609,"userId":"efdf501a-eb80-4726-9482-8a1853c76ade"}
+{"level":"info","requestId":"beafb560-85af-4f94-9e2a-72cc9d4b7569","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":611,"userId":"69742ddb-4e19-4db8-9f54-e7a7c67b6854"}
+{"level":"info","requestId":"3e892389-9305-46a3-874c-6f4ce9da45c9","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":615,"userId":"25a4d59f-c95c-4d3c-838e-5e9d001b32d6"}
+{"level":"info","requestId":"24d1b3d7-efb3-45a4-a598-d99c2cb8bce1","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":616,"userId":"1c4f9cbe-5597-405c-a9b4-00fbcfa1b716"}
+{"level":"info","requestId":"74d2f1ff-55ed-463d-8669-a394216eb0c8","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":617,"userId":"70e42132-3fd4-4678-b5aa-40035e77b1b9"}
+{"level":"info","requestId":"f5b884ed-e08c-4455-ba02-ca228328f910","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":619,"userId":"148e0203-cf4d-40fb-8d77-f640c58ae211"}
+{"level":"info","requestId":"c241df8b-5194-464c-9787-a96d6beac191","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":624,"userId":"d7454417-97ad-4183-b1b6-1f749391f31a"}
+{"level":"info","requestId":"4354dcaf-8005-4474-b954-ed8c2f531bd2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":627,"userId":"5a334473-ba7f-4b96-a2b4-faa57ccb16b8"}
+{"level":"info","requestId":"4d961007-a9de-4407-8b1e-b0269dc1dbe2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":630,"userId":"09127212-11f8-4c88-b051-8ec9940dd72a"}
+{"level":"info","requestId":"e01c8c14-11ec-46d6-86fb-d1a9ecb8783e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":631,"userId":"4ce59ce4-4dca-4f04-a829-bf184ae2301a"}
+{"level":"info","requestId":"acd87288-2af8-4a90-a390-0908328bbb7c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":634,"userId":"259c6fc6-7a66-4f8a-9f5c-e293bc53efab"}
+{"level":"info","requestId":"5d84cbdb-07f6-43a7-9bd9-829ad4c672c2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":636,"userId":"f8b4007b-23f7-470a-a236-038ffeeed2b9"}
+{"level":"info","requestId":"f122f8af-1dee-478e-a0a2-cc43ffa0c03e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":639,"userId":"added19f-4ac5-41d3-a0af-21dd1f07c124"}
+{"level":"info","requestId":"38cb4fd1-13df-49c1-80f6-1461b499c4f0","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":638,"userId":"35ac2809-14c5-4445-9fb0-d33c9a32a898"}
+{"level":"info","requestId":"c2b56569-30c5-4dee-8e32-d5ab53c7f73e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":644,"userId":"a57b1bc1-5b08-4f01-8116-d61b5b4a9a64"}
+{"level":"info","requestId":"397ade5a-1837-4af9-8e2e-f9b6e40be1af","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":647,"userId":"7b05b9dc-94db-4ffc-a3ca-c05d87bf152f"}
+{"level":"info","requestId":"46039c2a-f098-46a8-89b9-a67f96f1dfb9","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":650,"userId":"29519369-e09a-4cdf-8726-7d77b984aac8"}
+{"level":"info","requestId":"39e05158-eb6f-423b-8fda-3cb4abd5f939","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":647,"userId":"6c64e20c-80e5-4049-96a8-1cae9fb6d3db"}
+{"level":"info","requestId":"feed79b3-f3fb-4884-8756-f1e97e1f4c45","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":648,"userId":"b361c2ec-af8f-4ced-846b-59603162e3a4"}
+{"level":"info","requestId":"165fd921-937f-46d1-a557-dcd2cdeb4cf8","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":651,"userId":"e79c4a8b-d48c-407f-a219-71747dac78e2"}
+{"level":"info","requestId":"99ec538e-ebd4-4a39-a504-07ce7f82dac3","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":654,"userId":"af7d8132-c8a4-4b6c-808b-81d2ff39d8e6"}
+{"level":"info","requestId":"49a37064-cb5f-4b8b-9da8-9db61179640e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":657,"userId":"b3d00659-118e-415e-97b3-c280284cd8dd"}
+{"level":"info","requestId":"ab7fa998-841f-482e-8fe8-4e27976ce398","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":662,"userId":"b4b9e6a4-43d4-4b18-9e5b-5fa104d7bdbd"}
+{"level":"info","requestId":"2f7362b7-75d3-472b-933f-66d2229c2760","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":664,"userId":"b5bbddb7-2295-4d61-b3e6-c204aa091a64"}
+{"level":"info","requestId":"8e517185-e6fa-4bc4-bac3-f4cf963ecf1f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":667,"userId":"33271fd7-c773-4d6f-aa1c-c867a0e488a2"}
+{"level":"info","requestId":"1a408e01-23a4-459f-82a0-6160690dd050","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":669,"userId":"9b83005e-a198-41a2-8c33-90b4abd02810"}
+{"level":"info","requestId":"8b8c296b-107b-4907-a6ac-0d8517bf075f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":671,"userId":"522e5339-a342-4461-843a-3045fa1d6294"}
+{"level":"info","requestId":"82f4f64d-c811-41f6-afa3-68ea5941df82","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":675,"userId":"45a833f2-bf0a-46a7-a336-f19d2990b719"}
+{"level":"info","requestId":"6df2bc69-6341-43bc-bb1d-f31deb56cbb2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":678,"userId":"38b33294-091f-4583-8f7d-49678d65a68f"}
+{"level":"info","requestId":"a3b447cc-fa02-408e-be30-c3f20950a147","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":678,"userId":"fd16ec2f-c5a9-4dd0-87b8-2f85d159d730"}
+{"level":"info","requestId":"ec9967cd-92ec-47b2-a623-594a56f581c2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":684,"userId":"78bad17c-bde4-4e7d-b6a0-0a29b732b47e"}
+{"level":"info","requestId":"c8f3fd5c-9649-4b7b-a360-c65af24a3849","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":688,"userId":"9209599b-9b8e-40ff-b24f-51330d29a968"}
+{"level":"info","requestId":"128e814b-01c8-4770-affe-23f773c7b184","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":691,"userId":"ce8ab04a-bf5c-4ef4-ad23-37297f0f95c2"}
+{"level":"info","requestId":"4a7a96cd-56b9-4c61-a820-8d20254e19e4","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":693,"userId":"daa9ece8-610a-493c-a3b6-28b6e6c0d764"}
+{"level":"info","requestId":"bdc890c1-b6f8-4408-8124-ddb315948bbc","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":695,"userId":"4c988612-413d-4d73-a7fd-aba2dccf1e7b"}
+{"level":"info","requestId":"30e68314-11f3-4ac2-870a-de0275008d0d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":698,"userId":"7f4698d9-6d48-4024-a5f7-59bc4d6b0e5d"}
+{"level":"info","requestId":"cf215e86-f080-45ce-ae5f-c023a853524c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":701,"userId":"ce371d5d-4efc-4c28-a070-8b6ffdb382f6"}
+{"level":"info","requestId":"0734c363-49f6-46a6-a46d-8c3fe5fa6c4a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":703,"userId":"b022e5b8-c1bb-4b20-b03c-fa6d530c08fc"}
+{"level":"info","requestId":"0d431582-f726-40c0-af16-690396abead1","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":703,"userId":"eee842fc-8d5f-44b8-9112-2219840ca523"}
+{"level":"info","requestId":"0004a784-4bce-4ab6-9069-80469aa6902c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":706,"userId":"f0747f14-2982-41b9-bb44-158c751bf51a"}
+{"level":"info","requestId":"0dd2ab50-5f13-43f4-83f6-1f1f561757bd","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":709,"userId":"b52a87d9-caaa-4ec3-90f8-e21f6ffd01e7"}
+{"level":"info","requestId":"362bfc14-a794-4382-8a63-4a1a9a12ebab","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":712,"userId":"3e48baa0-8b7e-48dc-860e-5ec71bc248ec"}
+{"level":"info","requestId":"bac14bc5-5ed5-4da1-9e25-ab36e03ca312","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":714,"userId":"b956780b-70fb-48a7-9396-f98a0a6cff91"}
+{"level":"info","requestId":"ef1d16b7-1110-43cf-850f-948029c45b77","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":717,"userId":"216ee38d-06b0-4bf3-b08f-d181492122d2"}
+{"level":"info","requestId":"0ce40f2b-a636-4237-9895-0d64d25a9594","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":721,"userId":"e1e037f8-e639-4cb8-b794-caa545351958"}
+{"level":"info","requestId":"b2f9150b-b476-4dcc-9fd0-0ec22d39bcfe","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":723,"userId":"29c7ea39-5db3-48f3-b080-07ba32a295e0"}
+{"level":"info","requestId":"d0f88a81-91c0-4096-9aaf-acc4523b2649","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":726,"userId":"bd19254a-8ecc-41a7-81f8-b5ace237ab71"}
+{"level":"info","requestId":"fb264d4b-dfda-49f3-8a9e-ffa55eb4d7fc","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":726,"userId":"6ba4398d-0709-4520-b032-01ca97225403"}
+{"level":"info","requestId":"539af232-d989-4110-9afd-3c3ce0dfa2e0","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":729,"userId":"3dc3863d-90f5-47ab-8622-3f5aab8d4ca9"}
+{"level":"info","requestId":"0ab0675f-b912-4a78-afd4-d11fa2d5209e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":731,"userId":"125ad35b-cf5a-450c-bd76-72a06804ed5f"}
+{"level":"info","requestId":"e894f255-f2be-41dd-8ea3-7c1418b8da55","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":734,"userId":"318ea74b-0295-4fd4-87c3-74b035d13d0c"}
+{"level":"info","requestId":"201ba839-11af-4673-aed2-2c4474251722","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":736,"userId":"8f85e810-e047-44b7-86df-80e98c8dc0c4"}
+{"level":"info","requestId":"059914ca-0419-4d0b-80ed-a7fb0cbc6d7d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":738,"userId":"ef0f3dab-94f9-4d0d-bedd-94738bbc3bbb"}
+{"level":"info","requestId":"c21a3251-7171-4bc3-9f0d-052b51eab75a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":740,"userId":"ee396590-16f1-4430-b397-1ff84e9ff38e"}
+{"level":"info","requestId":"f84036ac-af24-4f9c-9db0-d8c7338412a4","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":743,"userId":"3543122b-6260-4990-98bd-dcb85ddfd4f4"}
+{"level":"info","requestId":"77ee0fa5-fe18-499c-bfa0-551885f66019","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":744,"userId":"c86c9256-5a3c-40a5-a2a7-38e83b0d3fe3"}
+{"level":"info","requestId":"06ef3d86-e901-4fd7-ae9a-502d44acce09","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":747,"userId":"665db609-37fc-4bcc-a1de-3148848ccd0c"}
+{"level":"info","requestId":"9533f6c1-a5eb-4ab9-92a8-66aa13f6f982","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":752,"userId":"d8ce0522-4668-498b-bc25-59a2fa688c28"}
+{"level":"info","requestId":"3dcc73f0-489c-4313-89cc-1c375933bd77","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":754,"userId":"b58d33b2-0c78-4392-9294-91825b1a032d"}
+{"level":"info","requestId":"c12f18c2-2c7e-4d57-b377-725e2a7a017d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":756,"userId":"fd53c418-ca8d-408e-8b0b-9f33e02eef71"}
+{"level":"info","requestId":"f27088f2-8909-4dca-9c91-8fdaf13f8bf1","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":759,"userId":"72457ffb-01cf-4e76-8d2f-f73c06d9ef11"}
+{"level":"info","requestId":"b5b50101-a842-4f82-a85a-f8340900ee9a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":762,"userId":"ef724bad-4f98-4ab5-8ae7-5bc0bd38af6b"}
+{"level":"info","requestId":"d44840d9-3150-4e76-a41b-8f735cd49739","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":766,"userId":"35c55f8c-391d-4950-8464-f1bda4bc75d0"}
+{"level":"info","requestId":"963c41d2-a401-4ce3-9b2d-4796a2604e72","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":778,"userId":"d4c14f6a-af33-4150-8108-9f3c773f5c58"}
+{"level":"info","requestId":"8a0ff078-0493-48ec-af38-c6c2de99423c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":781,"userId":"e07d5659-8ec9-425e-befa-244e216411c1"}
+{"level":"info","requestId":"114bb7f5-7ef7-4db8-90cb-4b4465030ffd","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":785,"userId":"06870faa-db71-48b9-bce4-eb7b549e5d15"}
+{"level":"info","requestId":"9e054d64-159f-40c2-b83b-2bc70d457c5d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":788,"userId":"4eb8fb7c-e951-48d8-bee6-204e3ba462c4"}
+{"level":"info","requestId":"e34187fc-bedc-42ab-b084-669f3e110811","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":792,"userId":"0ca952ee-cd8a-440c-aa12-ab6d9ff3a90f"}
+{"level":"info","requestId":"113a8650-eddc-4679-9f62-a663db528a4d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":794,"userId":"3535bd03-41d4-4825-b061-ac596331e097"}
+{"level":"info","requestId":"55d434cf-c99e-4185-adce-449504794e49","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":797,"userId":"6edb428d-f40c-4dbf-9ba9-d7bcf9accfea"}
+{"level":"info","requestId":"83d714f1-1f03-4e5e-a10d-5a4c8406521e","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":806,"userId":"57861be7-242b-4004-ba52-9df46c2cfe93"}
+{"level":"info","requestId":"7649c373-f3c0-4175-9d80-f66ab2e02a2c","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":812,"userId":"2941b091-1b7b-4c43-8bfe-0b2b3082e23f"}
+{"level":"info","requestId":"79699b87-e3e1-476a-80c7-7a58ef55849a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":819,"userId":"a6818528-3505-4fc0-b3ff-1f1a528d5a1d"}
+{"level":"info","requestId":"06d191a6-526b-4eda-878d-71df3b921e5a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":824,"userId":"391d028a-3fe4-4fab-97fb-c9a365cb61ce"}
+{"level":"info","requestId":"d2dda7aa-a393-4ab0-acdd-0bdd0391860a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":829,"userId":"2ab22389-d750-44f1-946d-6e049d084022"}
+{"level":"info","requestId":"605c17ee-816a-4ecb-8234-8a0ffe7be5d2","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":835,"userId":"50b17b19-347b-4f97-a545-824b1735db15"}
+{"level":"info","requestId":"474c46df-2b5c-442c-a1f3-6d951cc7636f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":841,"userId":"0c1db655-4d0c-43e8-971e-80c80c24a1c1"}
+{"level":"info","requestId":"d6408adb-f9d0-4540-a86c-20ca802bac81","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":844,"userId":"26482895-76a3-43f6-8da3-54d9728d5fc6"}
+{"level":"info","requestId":"d4bfead5-3e19-4dd4-b128-3ed2165c0028","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":848,"userId":"85e1b618-5d86-4afa-8ef1-fc7f2595adb6"}
+{"level":"info","requestId":"b7ab1998-9b2c-4cc1-8b4c-ef2d41b3129b","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":851,"userId":"50e7741d-f866-4ca7-85ee-f174a9b03fe5"}
+{"level":"info","requestId":"4c7b6070-2434-4c08-a05c-57cf599181a5","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":856,"userId":"c19e2b94-fcfa-47e5-90e8-1ff9f6355112"}
+{"level":"info","requestId":"b1adeeaa-4619-4d8f-8a94-87567a68b6f6","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":860,"userId":"3608956a-752e-41b4-8c66-2525bc11e134"}
+{"level":"info","requestId":"1f599dd2-9791-41e7-92dc-a551fdb13bdb","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":865,"userId":"d7ab61e9-36e2-4697-9c87-cad6d0c3f665"}
+{"level":"info","requestId":"3d44bbcc-44b5-4e78-9d2e-939c5b00ce7a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":868,"userId":"23e78fc3-f5fc-4a1c-8213-0e1c635efb26"}
+{"level":"info","requestId":"c0d59c61-78ab-46b3-bcb9-f16424283a62","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":871,"userId":"79332c2e-fd0c-40ae-a704-9f980d819533"}
+{"level":"info","requestId":"78117539-77ab-4443-8b1f-0aedbea1f5c9","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":875,"userId":"7ef15843-e18d-4d50-9441-6fe973def68d"}
+{"level":"info","requestId":"8d523d08-c44d-49a9-b611-48f37c2bcd01","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":878,"userId":"46a28b58-0fac-4943-86de-ec0681f65a82"}
+{"level":"info","requestId":"38e200c9-ff83-4cad-a90f-941bc36b19b6","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":879,"userId":"1082ed07-cd99-41eb-8b83-7958ff5da5a3"}
+{"level":"info","requestId":"942d7e7b-a219-411b-a7fd-aafa0e9b25f1","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":882,"userId":"f5faf8ee-f019-4ab2-a171-e5f88bccc087"}
+{"level":"info","requestId":"7adca024-564b-4342-bddd-60bee1d885d9","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":884,"userId":"91f843a2-bf2b-4627-ab00-2d477231e661"}
+{"level":"info","requestId":"14e9cf7f-2e45-48e0-8637-ef3746363e38","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":886,"userId":"bbae7b47-ee78-48b3-aa2c-4206ab958596"}
+{"level":"info","requestId":"a5add857-ced3-4336-b8c0-91fef71afb1a","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":890,"userId":"d6303086-ef1e-4187-a7f0-86786b7b33ca"}
+{"level":"info","requestId":"e02283c5-2005-4221-95dd-8b43243a1d2f","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":893,"userId":"28fe23bc-d6e2-4091-85cb-78d7c4944941"}
+{"level":"info","requestId":"4c2bfd37-cf7c-43ed-a8fe-0d43b82b007d","method":"POST","path":"/api/v1/checkout/reserve","statusCode":409,"durationMs":895,"userId":"1b667463-392b-44a8-8da0-808f47474bcf"}
+Total Requests:         200
+Accepted (HTTP 201):    10 (Expected: 10)
+Rejected (HTTP 409):    190 (Expected: 190)
+Server Errors (HTTP 5xx):0 (Expected: 0)
+Total Elapsed Time:     1021ms
+Latency (Min / Avg / P95 / Max): 226ms / 673ms / 986ms / 1011ms
+
+[DB Verification Part A]
+  Flash Sale: limit=10, reserved=10, sold=0
+  Inventory:  on_hand=100, reserved=10
+
+--- PART B: Executing Decoupled Sandbox Payment for the 10 Winning Reservations ---
+{"level":"info","requestId":"e42b9f0d-ed6d-49b3-9d51-e3e4180bc325","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":22,"userId":"4430c0b0-aaba-449a-a378-e3233923d128"}
+{"level":"info","requestId":"ff2f8507-faaa-4ec1-9111-5ca91dc3a2d2","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":6,"userId":"2d345405-9688-482c-bff8-35c5bd74033b"}
+{"level":"info","requestId":"ead28d3e-77ae-4a77-816b-3080b754d766","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":7,"userId":"3b931563-399a-41ac-bc81-8592951717c2"}
+{"level":"info","requestId":"c9a739e5-e9f9-48df-803f-c913e70da09b","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":7,"userId":"c26d7b0a-f7c2-42b5-bd74-155641bc8b31"}
+{"level":"info","requestId":"85e4e5eb-9e96-469c-b17e-5d822c066884","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":6,"userId":"235c8416-000f-4214-a3a8-d578dc51334d"}
+{"level":"info","requestId":"20b7b077-3086-430d-8030-10665af2dfde","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":7,"userId":"77c2d10e-23b7-4e1e-afce-16f000c531a4"}
+{"level":"info","requestId":"34fcec73-f3ba-4f74-8361-b6689089683f","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":8,"userId":"ba7d782f-cc38-4fcc-9088-972e3f8dbd1c"}
+{"level":"info","requestId":"fff617af-c8bf-424f-abc3-c61bd16a467c","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":6,"userId":"a2c5b2d0-36dc-4a15-ae0a-d1230cd30ea2"}
+{"level":"info","requestId":"9c755aee-d7d1-489a-861b-484ef3ef02a8","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":10,"userId":"4906a2d1-869d-4d20-9573-6f921a548fe1"}
+{"level":"info","requestId":"893e0bb8-950a-45ee-8ec9-17787824b9bd","method":"POST","path":"/api/v1/checkout/pay","statusCode":200,"durationMs":13,"userId":"72c63854-f7f6-4696-b606-10ac36260b61"}
+Successfully completed payment for all 10 winning reservations.
+
+[DB Verification Part B - Post-Payment Settled State]
+  Flash Sale: limit=10, reserved=0, sold=10
+  Inventory:  on_hand=90, reserved=0
+  Consumed Reservations: 10
+  Paid Vendor Orders:    10
+
+========================================================================
+DEMONSTRATION 2 PROOF COMPLETE: ZERO OVERSELLING INVARIANTS PRESERVED
+========================================================================
+✓ 10/10 units reserved under 200 concurrent requests (exactly 10 admitted)
+✓ 190/190 contention requests received clean HTTP 409 INVENTORY_UNAVAILABLE (exactly 190 rejected)
+✓ 0 unhandled 5xx server errors (0 errors)
+✓ 0 negative stock and 0 counter divergence
+✓ Physical warehouse inventory decremented exactly by 10 (100 -> 90)
+✓ All vendor sub-orders and consumed reservations finalized cleanly.
+
+[Artifacts] Successfully wrote Demonstration 2 evidence to /home/pr6thv3/flashcart_safemigrate_workspace/flashcart/docs/evidence/demo_2_flash_sale_concurrency
+

@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "demonstration_id": "DEMO-02-FLASH-SALE-CONCURRENCY",
+    "run_id": "mv1dl2c0seho",
+    "timestamp": "2026-10-09T19:45:47.736Z",
+    "product_id": "654db599-5111-4dc4-95c9-6769acddc9d6",
+    "flash_sale_id": "b8ecc00f-825f-4cc4-b9f2-efaa0651bbd3"
+  },
+  "pre_test_state": {
+    "flash_sale": {
+      "quantity_limit": 10,
+      "quantity_reserved": 0,
+      "quantity_sold": 0
+    },
+    "inventory": {
+      "on_hand_qty": 100,
+      "reserved_qty": 0
+    }
+  },
+  "part_a_reservation_state": {
+    "flash_sale": {
+      "quantity_limit": 10,
+      "quantity_reserved": 10,
+      "quantity_sold": 0
+    },
+    "inventory": {
+      "on_hand_qty": 100,
+      "reserved_qty": 10
+    },
+    "accepted_reservations_count": 10,
+    "conflict_rejections_count": 190,
+    "server_errors_count": 0
+  },
+  "part_b_settled_payment_state": {
+    "flash_sale": {
+      "quantity_limit": 10,
+      "quantity_reserved": 0,
+      "quantity_sold": 10
+    },
+    "inventory": {
+      "on_hand_qty": 90,
+      "reserved_qty": 0
+    },
+    "consumed_reservations_count": 10,
+    "paid_vendor_orders_count": 10
+  },
+  "invariants_verified": {
+    "zero_overselling": true,
+    "zero_negative_stock": true,
+    "exact_decrement": true,
+    "clean_conflict_envelope": true
+  }
+}
