@@ -52,12 +52,14 @@ export default function VendorPortalPage() {
         api.vendor.getProducts().catch(() => []),
         api.vendor.getOrders().catch(() => []),
       ]);
+      const prodsList = Array.isArray(prods) ? prods : (prods?.products || []);
+      const ordsList = Array.isArray(ords) ? ords : (ords?.orders || []);
       setVendorProfile(profile);
-      setProducts(prods);
-      setOrders(ords);
+      setProducts(prodsList);
+      setOrders(ordsList);
 
       const initialEdits: Record<string, number> = {};
-      prods.forEach((p: any) => {
+      prodsList.forEach((p: any) => {
         initialEdits[p.id] = p.on_hand_qty;
       });
       setStockEdits(initialEdits);

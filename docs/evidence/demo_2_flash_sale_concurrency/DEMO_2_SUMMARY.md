@@ -2,7 +2,7 @@
 
 **Demonstration ID:** `DEMO-02-FLASH-SALE-CONCURRENCY`  
 **Requirement Reference:** ORIGINAL_REQUEST.md §R4, Document 08 §Demo 2, Milestone M5  
-**Execution Timestamp:** 2026-10-10T03:05:42.468Z  
+**Execution Timestamp:** 2026-10-10T03:33:01.985Z  
 **Git Commit SHA:** `eb53847`  
 **Target Repository:** `pr6thv3/flashcart`  
 **Environment:** Node v26.8.1, PostgreSQL 17 (Docker)  
@@ -20,11 +20,11 @@ Demonstration 2 provides verifiable empirical proof that FlashCart's transaction
 ## 2. Test Execution Details
 
 - **Command Executed:** `npx tsx tests/concurrency/flash_sale_200_concurrency.ts`
-- **Run ID:** `mv1tasooy12y`
+- **Run ID:** `mv1u9xrrmlbh`
 - **Total Concurrent Requests:** 200
 - **Flash Sale Quota:** 10 units
 - **Initial Warehouse Stock:** 100 units
-- **Total Wall-Clock Elapsed Time:** 948ms
+- **Total Wall-Clock Elapsed Time:** 943ms
 
 ---
 
@@ -36,7 +36,7 @@ Demonstration 2 provides verifiable empirical proof that FlashCart's transaction
 | **Accepted Reservations (HTTP 201)** | Exactly 10 | 10 | **PASS** |
 | **Rejected Conflicts (HTTP 409)** | Exactly 190 (`INVENTORY_UNAVAILABLE`) | 190 | **PASS** |
 | **Server Errors (HTTP 5xx)** | Exactly 0 | 0 | **PASS** |
-| **Latency Min / Avg / P95 / Max** | Sub-second concurrency | 240ms / 676ms / 921ms / 941ms | **PASS** |
+| **Latency Min / Avg / P95 / Max** | Sub-second concurrency | 249ms / 685ms / 909ms / 932ms | **PASS** |
 | **Flash Sale Final State** | `quantity_sold = 10`, `reserved = 0` | sold=10, reserved=0 | **PASS** |
 | **Warehouse Stock Final State** | `on_hand_qty = 90` (100 - 10) | on_hand=90, reserved=0 | **PASS** |
 | **Negative Stock Count** | 0 negative values | 0 | **PASS** |

@@ -321,7 +321,10 @@ export const api = {
   // Vendor Portal
   vendor: {
     getProfile: () => apiRequest<any>('/vendor/profile'),
-    getProducts: () => apiRequest<any[]>('/vendor/products'),
+    getProducts: async () => {
+      const res = await apiRequest<any>('/vendor/products');
+      return Array.isArray(res) ? res : (res?.products || []);
+    },
     createProduct: (data: {
       title: string;
       description?: string;
@@ -343,7 +346,10 @@ export const api = {
         method: 'PUT',
         body: JSON.stringify({ onHandQty }),
       }),
-    getOrders: () => apiRequest<any[]>('/vendor/orders'),
+    getOrders: async () => {
+      const res = await apiRequest<any>('/vendor/orders');
+      return Array.isArray(res) ? res : (res?.orders || []);
+    },
     getOrder: (id: string) => apiRequest<any>(`/vendor/orders/${id}`),
     fulfillOrder: (orderId: string, carrier: string = 'Standard Express', trackingNumber?: string) =>
       apiRequest<any>(`/vendor/orders/${orderId}/fulfill`, {

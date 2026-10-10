@@ -1,10 +1,10 @@
 {
   "metadata": {
     "demonstration_id": "DEMO-02-FLASH-SALE-CONCURRENCY",
-    "run_id": "mv1tasooy12y",
-    "timestamp": "2026-10-10T03:05:42.468Z",
-    "product_id": "0af03adb-e7e7-4606-b42d-c7300d4ccf7f",
-    "flash_sale_id": "18ef1525-3875-4008-b98c-951c468ec248"
+    "run_id": "mv1u9xrrmlbh",
+    "timestamp": "2026-10-10T03:33:01.985Z",
+    "product_id": "812ef810-a436-488e-a647-e7930b44f2b7",
+    "flash_sale_id": "5b35f50c-dc38-40ff-96be-c9e8c0c44824"
   },
   "pre_test_state": {
     "flash_sale": {

@@ -39,7 +39,7 @@
     "fail_on": "high",
     "passed": false
   },
-  "scan_timestamp": "2026-10-10T03:05:57.072367+00:00",
+  "scan_timestamp": "2026-10-10T03:34:27.013250+00:00",
   "scanned_files": [
     "docs/evidence/demo_4_ci_integration/fixtures/pr1_risky_drop_description.sql"
   ],
